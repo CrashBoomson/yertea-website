@@ -1,0 +1,1018 @@
+/*
+    NCAM Creative Engine: Yertea Website - Blue Habanero Inspired Style
+    Completely Rewritten CSS for a Modern, Dynamic, and Visually Rich Experience
+*/
+
+/* --- 0. Core Variables & Base Reset --- */
+:root {
+    /* Brand Colors (Adjusted for a fresh, natural yet vibrant feel) */
+    --color-yertea-green: #4CAF50; /* Primary - Natural, Energy */
+    --color-yertea-blue: #2196F3; /* Secondary - Ocean, Refreshment */
+    --color-yertea-yellow: #FFC107; /* Accent - Sun, Vitality */
+    --color-dark-text: #2c3e50; /* Dark for contrast */
+    --color-light-text: #ecf0f1; /* Light for dark backgrounds */
+
+    /* Grayscale/Neutrals */
+    --color-white: #ffffff;
+    --color-light-grey: #f4f7f6; /* Very light background */
+    --color-medium-grey: #bdc3c7;
+    --color-dark-grey: #7f8c8d;
+    --color-black: #1a1a1a;
+
+    /* Overlays */
+    --overlay-dark: rgba(0, 0, 0, 0.6);
+    --overlay-green: rgba(76, 175, 80, 0.7);
+    --overlay-blue: rgba(33, 150, 243, 0.7);
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif; /* Modern, clean, strong */
+    --font-secondary: 'Open Sans', sans-serif; /* Readable, versatile */
+
+    /* Spacing */
+    --spacing-xs: 10px;
+    --spacing-sm: 20px;
+    --spacing-md: 40px;
+    --spacing-lg: 80px;
+    --spacing-xl: 120px;
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+    --transition-ease: ease-in-out;
+}
+
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.7;
+    color: var(--color-dark-text);
+    background-color: var(--color-light-grey);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container for Centering Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* --- 1. Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-dark-text);
+}
+
+h1 {
+    font-size: 3.8em;
+    color: var(--color-white); /* For hero overlay */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-yertea-green);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-yertea-blue);
+    margin: var(--spacing-xs) auto 0 auto;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 2em;
+    color: var(--color-yertea-green);
+    margin-bottom: var(--spacing-xs);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1em;
+}
+
+/* Links & Buttons */
+a {
+    text-decoration: none;
+    color: var(--color-yertea-blue);
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+a:hover {
+    color: var(--color-yertea-green);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--color-yertea-green);
+    color: var(--color-white);
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed) var(--transition-ease);
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.button:hover {
+    background-color: var(--color-white);
+    color: var(--color-yertea-green);
+    border-color: var(--color-yertea-green);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.button.secondary {
+    background-color: var(--color-yertea-blue);
+    border-color: var(--color-yertea-blue);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-yertea-blue);
+    border-color: var(--color-yertea-blue);
+}
+
+.button.outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.button.outline:hover {
+    background-color: var(--color-white);
+    color: var(--color-yertea-green);
+}
+
+/* --- 2. Header & Navigation --- */
+header {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed; /* Use fixed for sleek navigation */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-sm);
+    max-width: 1400px; /* Wider nav */
+    margin: 0 auto;
+}
+
+nav .logo img {
+    height: 70px; /* Larger logo */
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+nav .logo img:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+nav ul li a {
+    color: var(--color-dark-text);
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+    padding: 8px 0;
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-yertea-green);
+    bottom: 0;
+    left: 0;
+    transition: width var(--transition-speed) var(--transition-ease);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--color-yertea-green);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+.nav-cta .button {
+    padding: 10px 25px;
+    font-size: 1em;
+    box-shadow: none; /* Remove shadow for nav button */
+}
+
+/* Mobile Menu Toggle (Hidden by default) */
+.menu-toggle {
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: var(--color-dark-text);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* --- 3. Sections & Layout --- */
+section {
+    padding: var(--spacing-xl) 0; /* Generous padding for sections */
+    position: relative;
+    overflow: hidden; /* For background effects */
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Hero Section (Homepage Only) */
+.hero-section {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('yertea-hero-bg.jpg') no-repeat center center/cover; /* High-res background image */
+    position: relative;
+    color: var(--color-white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-dark); /* Dark overlay for text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.4;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Secondary Hero (For inner pages) */
+.secondary-hero {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin-top: 90px; /* Offset for fixed header */
+}
+
+.secondary-hero h1 {
+    font-size: 3.5em;
+}
+
+/* Content Sections */
+.content-section {
+    background-color: var(--color-white); /* Default for clean sections */
+}
+
+.content-section.bg-light {
+    background-color: var(--color-light-grey);
+}
+
+.content-section.bg-dark {
+    background-color: var(--color-black);
+    color: var(--color-light-text);
+}
+
+.content-section.bg-dark h2,
+.content-section.bg-dark h3 {
+    color: var(--color-yertea-yellow); /* Contrast for dark background */
+}
+
+.content-section.bg-dark a {
+    color: var(--color-yertea-blue);
+}
+
+.content-section.bg-dark a:hover {
+    color: var(--color-yertea-green);
+}
+
+.two-column-layout {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.two-column-layout .col-left,
+.two-column-layout .col-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.two-column-layout img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.two-column-layout img:hover {
+    transform: scale(1.02);
+}
+
+.two-column-layout ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.two-column-layout ul li {
+    position: relative;
+    padding-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1em;
+}
+
+.two-column-layout ul li::before {
+    content: '✓'; /* Checkmark icon */
+    color: var(--color-yertea-green);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
+/* Call to Action Sections */
+.cta-banner {
+    background: linear-gradient(to right, var(--color-yertea-green), var(--color-yertea-blue));
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+}
+
+.cta-banner h2 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cta-banner h2::after {
+    background-color: var(--color-yertea-yellow);
+}
+
+.cta-banner p {
+    font-size: 1.3em;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+/* Featured Products on Homepage */
+.featured-products {
+    background-color: var(--color-light-grey);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.product-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease);
+    text-align: center;
+    padding-bottom: var(--spacing-sm);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px; /* Fixed height for consistent look */
+    object-fit: cover; /* Cover ensures image fills the space */
+    transition: transform 0.5s ease-in-out;
+}
+
+.product-card:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.product-card-content {
+    padding: var(--spacing-sm);
+}
+
+.product-card h3 {
+    font-size: 1.8em;
+    color: var(--color-yertea-blue);
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-card .price {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-yertea-green);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+/* Product Listing Page Specifics */
+.product-detail-section {
+    background-color: var(--color-white);
+}
+
+.product-detail-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+    background-color: var(--color-light-grey);
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.product-detail-item:nth-child(even) {
+    flex-direction: row-reverse; /* Alternate image/text order */
+}
+
+.product-detail-item .product-image-large {
+    flex: 1;
+    min-width: 350px;
+    text-align: center;
+}
+
+.product-detail-item .product-image-large img {
+    max-width: 100%;
+    height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.product-detail-item .product-info {
+    flex: 2;
+    min-width: 400px;
+}
+
+.product-detail-item .product-info h3 {
+    font-size: 2.5em;
+    color: var(--color-yertea-green);
+}
+
+.product-detail-item .product-info p {
+    font-size: 1.2em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-detail-item .product-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.product-detail-item .product-info ul li {
+    position: relative;
+    padding-left: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1em;
+}
+
+.product-detail-item .product-info ul li::before {
+    content: '★'; /* Star icon */
+    color: var(--color-yertea-yellow);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.product-pricing-details {
+    background-color: var(--color-white);
+    padding: var(--spacing-sm);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.product-pricing-details p {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-pricing-details strong {
+    color: var(--color-yertea-blue);
+}
+
+.order-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    align-items: center;
+}
+
+.order-form label {
+    font-weight: 600;
+    color: var(--color-dark-text);
+}
+
+.order-form select {
+    padding: 10px 15px;
+    border: 1px solid var(--color-medium-grey);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-secondary);
+    background-color: var(--color-white);
+}
+
+.order-form .button {
+    padding: 10px 25px;
+    font-size: 1em;
+}
+
+
+/* Forms (Partnership & Bulk Order) */
+.form-section {
+    background-color: var(--color-light-grey);
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--color-dark-text);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--color-medium-grey);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-secondary);
+    transition: border-color var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-yertea-blue);
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .button {
+    margin-top: var(--spacing-md);
+    width: 100%;
+}
+
+/* --- 4. Footer --- */
+footer {
+    background-color: var(--color-black);
+    color: var(--color-light-text);
+    padding: var(--spacing-lg) 0;
+    font-size: 0.95em;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+}
+
+.footer-logo-col {
+    flex: 2;
+    min-width: 250px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo-col img {
+    height: 80px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-nav-col, .footer-contact-col, .footer-social-col {
+    flex: 1;
+    min-width: 180px;
+    margin-bottom: var(--spacing-sm);
+}
+
+footer h3 {
+    color: var(--color-yertea-yellow);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+footer a {
+    color: var(--color-light-text);
+    opacity: 0.85;
+}
+
+footer a:hover {
+    color: var(--color-yertea-blue);
+    opacity: 1;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.footer-social-links a {
+    display: inline-block;
+}
+
+.footer-social-links img {
+    height: 35px;
+    width: 35px;
+    filter: brightness(0) invert(1); /* Makes icons white */
+    transition: transform var(--transition-speed) var(--transition-ease), filter var(--transition-speed) var(--transition-ease);
+}
+
+.footer-social-links a:hover img {
+    transform: scale(1.1);
+    filter: brightness(1) invert(0) drop-shadow(0 0 5px var(--color-yertea-yellow)); /* Color on hover */
+}
+
+.copyright {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9em;
+}
+
+/* --- 5. Responsive Design --- */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 2.2em;
+    }
+    h3 {
+        font-size: 1.6em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+    nav ul {
+        gap: var(--spacing-sm);
+    }
+
+    .hero-section {
+        height: 70vh; /* Adjust hero height on tablets */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .product-detail-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .product-detail-item:nth-child(even) {
+        flex-direction: column; /* Keep consistent on small screens */
+    }
+    .product-detail-item .product-image-large {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+    .product-detail-item .product-info {
+        min-width: unset;
+        width: 100%;
+    }
+    .product-detail-item .product-info h3 {
+        font-size: 2em;
+    }
+    .two-column-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .two-column-layout .col-left,
+    .two-column-layout .col-right {
+        min-width: unset;
+        width: 100%;
+    }
+    .two-column-layout ul {
+        text-align: left; /* Keep list items left-aligned */
+        padding-left: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    nav {
+        flex-wrap: wrap;
+        padding-top: var(--spacing-xs);
+        padding-bottom: var(--spacing-xs);
+    }
+    nav .logo {
+        flex: 1;
+    }
+    .menu-toggle {
+        display: block; /* Show menu toggle */
+        order: 2; /* Position it correctly */
+        padding: 5px 10px;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 90px; /* Below header */
+        left: 0;
+        background-color: var(--color-white);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        height: 0; /* Hidden by default */
+        overflow: hidden;
+        transition: height var(--transition-speed) var(--transition-ease);
+        padding: 0;
+    }
+    nav ul.active {
+        height: auto; /* Show menu */
+        padding: var(--spacing-sm) 0;
+    }
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+    }
+    nav .nav-cta {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-sm);
+    }
+
+    /* General Adjustments */
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .hero-section {
+        height: 60vh;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+        margin-bottom: var(--spacing-md);
+    }
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .cta-banner h2 {
+        font-size: 1.8em;
+    }
+    .cta-banner p {
+        font-size: 1em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-logo-col, .footer-nav-col, .footer-contact-col, .footer-social-col {
+        min-width: unset;
+        width: 100%;
+    }
+    .footer-social-links {
+        justify-content: center;
+    }
+    .order-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .order-form select, .order-form .button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+    .hero-section {
+        height: 50vh;
+    }
+    .hero-content {
+        padding: var(--spacing-sm);
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .product-card img {
+        height: 250px;
+    }
+    .product-detail-item .product-image-large img {
+        height: 300px;
+    }
+    .contact-form {
+        padding: var(--spacing-sm);
+    }
+    .form-group input, .form-group textarea {
+        padding: 10px;
+    }
+}
+
+
+/* Image Placeholders (You MUST replace these with actual high-quality images) */
+/* Ideally, create specific images for each purpose */
+
+.hero-section {
+    background-image: url('https://via.placeholder.com/1920x1080/87CEEB/FFFFFF?text=Yertea+Hero+-+Ocean+Vibes');
+}
+.secondary-hero[style*="background-image: url('about-hero.jpg')"] {
+    background-image: url('https://via.placeholder.com/1920x700/ADD8E6/FFFFFF?text=About+Yertea');
+}
+.secondary-hero[style*="background-image: url('products-hero.jpg')"] {
+    background-image: url('https://via.placeholder.com/1920x700/A0D6B4/FFFFFF?text=Yertea+Products');
+}
+.secondary-hero[style*="background-image: url('partnership-hero.jpg')"] {
+    background-image: url('https://via.placeholder.com/1920x700/F0E68C/FFFFFF?text=Partner+with+Yertea');
+}
+.secondary-hero[style*="background-image: url('bulk-hero.jpg')"] {
+    background-image: url('https://via.placeholder.com/1920x700/FFE4B5/FFFFFF?text=Yertea+Bulk+Orders');
+}
+
+/* Featured Products on Home */
+.product-card img[src*="yertea-raspberry.png"] {
+    content: url('yertea.jpg'); /* The actual image you provided for Raspberry */
+}
+.product-card img[src*="yertea-lemon.png"] {
+    content: url('https://via.placeholder.com/400x350/F8D621/333333?text=Yertea+Lemon');
+}
+.product-card img[src*="yertea-peach.png"] {
+    content: url('https://via.placeholder.com/400x350/FFB86B/333333?text=Yertea+Peach');
+}
+
+/* Product Details on Products Page */
+.product-detail-item img[src*="yertea-raspberry-large.png"] {
+    content: url('yertea.jpg'); /* The actual image you provided for Raspberry */
+}
+.product-detail-item img[src*="yertea-lemon-large.png"] {
+    content: url('https://via.placeholder.com/600x450/F8D621/333333?text=Yertea+Lemon');
+}
+.product-detail-item img[src*="yertea-peach-large.png"] {
+    content: url('https://via.placeholder.com/600x450/FFB86B/333333?text=Yertea+Peach');
+}
+
+/* Other Content Images */
+img[src*="natural-ingredients.jpg"] {
+    content: url('https://via.placeholder.com/800x600/E8F6F3/333333?text=Natural+Ingredients');
+}
+img[src*="yerba-mate-farm.jpg"] {
+    content: url('https://via.placeholder.com/800x600/C1E7E0/333333?text=Yerba+Mate+Farm');
+}
+img[src*="restaurant-partnership.jpg"] {
+    content: url('https://via.placeholder.com/800x600/AADDEE/333333?text=Restaurant+Partnership');
+}
+img[src*="bulk-supply.jpg"] {
+    content: url('https://via.placeholder.com/800x600/DDEECC/333333?text=Bulk+Supply');
+}
+
+/* Icons (replace with actual SVGs or Font Awesome) */
+img[src*="icon-natural.svg"] { content: url('https://via.placeholder.com/60/4CAF50/FFFFFF?text=🌿'); }
+img[src*="icon-refreshing.svg"] { content: url('https://via.placeholder.com/60/2196F3/FFFFFF?text=💧'); }
+img[src*="icon-energy.svg"] { content: url('https://via.placeholder.com/60/FFC107/FFFFFF?text=⚡'); }
+img[src*="icon-quality-check.svg"] { content: url('https://via.placeholder.com/60/4CAF50/FFFFFF?text=✔️'); }
+img[src*="icon-community-focus.svg"] { content: url('https://via.placeholder.com/60/2196F3/FFFFFF?text=👥'); }
+
+/* Social Icons */
+img[src*="icon-facebook.svg"] { content: url('https://via.placeholder.com/35/3b5998/FFFFFF?text=f'); border-radius: 50%; }
+img[src*="icon-instagram.svg"] { content: url('https://via.placeholder.com/35/E1306C/FFFFFF?text=ig'); border-radius: 50%; }
+img[src*="icon-twitter.svg"] { content: url('https://via.placeholder.com/35/1DA1F2/FFFFFF?text=tw'); border-radius: 50%; }
+
+/* Logo images */
+.logo img[src*="yertea-logo.png"] {
+    content: url('https://via.placeholder.com/180x70/4CAF50/FFFFFF?text=Yertea+Logo'); /* Adjust size as needed */
+}
+.footer-logo-col img[src*="yertea-logo-white.png"] {
+    content: url('https://via.placeholder.com/180x70/333333/FFFFFF?text=Yertea+Logo'); /* Adjust size as needed */
+}
