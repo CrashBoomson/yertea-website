@@ -1,254 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yertea - Natural Energy. Ocean Refreshment.</title>
-    <meta name="description" content="Yertea: The healthier, great-tasting energy alternative. Experience all-natural yerba mate tea for sustained energy and thirst-quenching refreshment.">
-    <meta name="keywords" content="Yertea, yerba mate, natural energy, healthy energy drink, thirst quenching, tea, energy drink alternative, Cleveland, e-commerce, healthy living">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Yertea",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Main Street",
-        "addressLocality": "Cleveland",
-        "addressRegion": "OH",
-        "postalCode": "44101",
-        "addressCountry": "US"
-      },
-      "url": "https://www.yertea.com",
-      "telephone": "+12165551234",
-      "email": "info@yertea.com",
-      "priceRange": "$",
-      "image": "https://www.yertea.com/yertea.jpg",
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Yertea+Cleveland+OH",
-      "description": "Yertea: Your healthier, great-tasting energy alternative. All-natural yerba mate tea, starting in Cleveland, OH.",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "17:00"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yertea | Handcrafted Yerba Mate Tonic</title>
+  <meta name="description" content="Sustained energy, clean ingredients, and brewed refreshment. Experience real yerba mate." />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              green: '#2D5A27',
+              dark: '#121F13',
+              accent: '#E3A857',
+              cream: '#FAF8F5',
+            }
+          }
         }
-      ],
-      "brand": {
-        "@type": "Brand",
-        "name": "Yertea"
-      },
-      "servesCuisine": "Beverages",
-      "areaServed": {
-        "@type": "Place",
-        "name": "Cleveland, OH"
       }
     }
-    </script>
+  </script>
 </head>
-<body>
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html"><img src="images/yertea-logo.png" alt="Yertea Logo"></a>
-            </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-            <ul id="main-nav">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="partnership.html">Partnership</a></li>
-                <li><a href="bulkorder.html">Bulk Order</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="products.html" class="button">Order Yertea</a>
-            </div>
-        </nav>
-    </header>
+<body class="bg-brand-cream text-stone-800 font-sans antialiased selection:bg-brand-green selection:text-white">
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Sip the Ocean's Energy</h1>
-                <p>Discover Yertea: All-natural, sustained energy with no synthetic substances or crash. <br>Your healthier alternative to traditional energy drinks.</p>
-                <div class="cta-buttons">
-                    <a href="products.html" class="button">Shop Flavors</a>
-                    <a href="about.html" class="button outline">Learn More</a>
-                </div>
-            </div>
-        </section>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-cream/80 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="font-display text-2xl font-bold tracking-tight text-brand-dark">
+        YERTEA<span class="text-brand-accent">.</span>
+      </a>
 
-        <section class="content-section bg-light text-center">
-            <div class="container">
-                <h2>Why Choose Yertea?</h2>
-                <p>We're passionate about providing a clean, delicious, and effective way to energize your day. Yertea is more than just a drink; it's a commitment to natural vitality.</p>
-                <div class="product-grid"> <div class="product-card">
-                        <img src="icon-natural.svg" alt="All Natural Icon">
-                        <div class="product-card-content">
-                            <h3>All-Natural Goodness</h3>
-                            <p>Crafted with pure Yerba Mate and real fruit flavors. No artificial ingredients, no compromise.</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="icon-refreshing.svg" alt="Thirst Quenching Icon">
-                        <div class="product-card-content">
-                            <h3>Unrivaled Refreshment</h3>
-                            <p>Designed to quench your thirst and invigorate your senses with every delicious sip.</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="icon-energy.svg" alt="Sustained Energy Icon">
-                        <div class="product-card-content">
-                            <h3>Sustained, Clean Energy</h3>
-                            <p>Experience the calm, focused energy of Yerba Mate without the jitters or the dreaded crash.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-stone-600">
+        <a href="#about" class="hover:text-brand-green transition-colors">The Brew</a>
+        <a href="#products" class="hover:text-brand-green transition-colors">Products</a>
+        <a href="#wholesale" class="hover:text-brand-green transition-colors">Wholesale</a>
+      </div>
 
-        <section class="two-column-layout content-section">
-            <div class="container">
-                <div class="col-left">
-                    <img src="natural-ingredients.jpg" alt="Fresh ingredients for Yertea">
-                </div>
-                <div class="col-right">
-                    <h2>Taste the Difference of Pure Ingredients</h2>
-                    <p>At Yertea, quality starts with nature. We meticulously select the finest Yerba Mate leaves and blend them with natural fruit essences to create a beverage that's not just energizing, but truly delicious.</p>
-                    <p>Unlike many energy drinks filled with synthetic compounds, Yertea relies on the inherent goodness of nature to provide a healthy boost. This dedication to purity ensures a superior taste and a body-friendly energy experience.</p>
-                    <a href="about.html" class="button secondary">Our Commitment to Quality</a>
-                </div>
-            </div>
-        </section>
+      <div>
+        <a href="#products" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-green text-white font-medium text-sm hover:bg-brand-dark transition-all shadow-sm">
+          Order Online
+        </a>
+      </div>
+    </div>
+  </nav>
 
-        <section class="featured-products content-section">
-            <div class="container">
-                <h2>Our Delicious Flavors</h2>
-                <p class="text-center">Explore the range of Yertea flavors, each crafted to provide a unique and refreshing natural energy experience.</p>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <img src="yertea-raspberry.png" alt="Yertea Raspberry Bottle">
-                        <div class="product-card-content">
-                            <h3>Raspberry Bliss</h3>
-                            <p>Sweet and tangy, a vibrant burst of berry energy.</p>
-                            <span class="price">$3.50</span>
-                            <a href="products.html#raspberry" class="button small">View Details</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="yertea-lemon.png" alt="Yertea Lemon Bottle">
-                        <div class="product-card-content">
-                            <h3>Zesty Lemon Zing</h3>
-                            <p>Crisp and invigorating, a classic citrus twist.</p>
-                            <span class="price">$3.50</span>
-                            <a href="products.html#lemon" class="button small">View Details</a>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="yertea-peach.png" alt="Yertea Peach Bottle">
-                        <div class="product-card-content">
-                            <h3>Subtle Peach Serenity</h3>
-                            <p>Delicate and naturally sweet, a smooth, calming lift.</p>
-                            <span class="price">$3.50</span>
-                            <a href="products.html#peach" class="button small">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: var(--spacing-md);">
-                    <a href="products.html" class="button">See All Products</a>
-                </div>
-            </div>
-        </section>
+  <!-- Hero Section with Video Background Support -->
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-brand-dark text-white">
+    <!-- Background Video / Image Fallback -->
+    <div class="absolute inset-0 z-0">
+      <!-- To use video: replace the src with your video file URL -->
+      <video class="w-full h-full object-cover opacity-35" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1920&q=80">
+        <source src="" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
+    </div>
 
-        <section class="cta-banner">
-            <div class="container">
-                <h2>Ready to Elevate Your Energy?</h2>
-                <p>Whether for personal enjoyment, your business, or a large event, Yertea is your go-to for natural refreshment.</p>
-                <div class="cta-buttons">
-                    <a href="products.html" class="button">Order Yertea Now</a>
-                    <a href="partnership.html" class="button outline">Partner With Us</a>
-                    <a href="bulkorder.html" class="button outline">Bulk Orders</a>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-24">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-xs font-bold tracking-widest uppercase mb-6">
+        Clean Energy • Real Botanical Infusion
+      </span>
+      <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+        Elevate Your Daily Ritual.
+      </h1>
+      <p class="text-lg md:text-xl text-stone-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        Handcrafted ready-to-drink yerba mate tonic. Pure botanical sustained focus without the crash or artificial sweeteners.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-accent text-brand-dark font-bold text-base hover:bg-yellow-400 transition-all shadow-lg hover:shadow-xl">
+          Shop Cans & Cases
+        </a>
+        <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-base backdrop-blur-sm border border-white/20 transition-all">
+          Explore Ingredients
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo-col">
-                <img src="yertea-logo-white.png" alt="Yertea Logo">
-                <p>Yertea: Natural Energy. Ocean Refreshment.</p>
-                <p>&copy; 2025 Yertea. All rights reserved.</p>
-            </div>
-            <div class="footer-nav-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="partnership.html">Partnership</a></li>
-                    <li><a href="bulkorder.html">Bulk Order</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact-col">
-                <h3>Contact Us</h3>
-                <p>Email: <a href="mailto:info@yertea.com">info@yertea.com</a></p>
-                <p>Phone: <a href="tel:+12165551234">(216) 555-1234</a></p>
-                <p>Cleveland, OH</p>
-            </div>
-            <div class="footer-social-col">
-                <h3>Follow Us</h3>
-                <div class="footer-social-links">
-                    <a href="#" target="_blank" aria-label="Facebook"><img src="icon-facebook.svg" alt="Facebook"></a>
-                    <a href="#" target="_blank" aria-label="Instagram"><img src="icon-instagram.svg" alt="Instagram"></a>
-                    <a href="#" target="_blank" aria-label="Twitter"><img src="icon-twitter.svg" alt="Twitter"></a>
-                </div>
-            </div>
+  <!-- Feature Highlights -->
+  <section id="about" class="py-24 px-6 border-b border-stone-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+        <div class="p-8 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 text-xl font-bold">
+            01
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-dark mb-3">Sustained Clarity</h3>
+          <p class="text-stone-600 leading-relaxed text-sm">
+            Naturally balanced caffeine paired with theobromine provides calm, prolonged alertness with zero sudden drops.
+          </p>
         </div>
-        <div class="copyright container">
-            <p>Made with passion for a healthier Cleveland & beyond.</p>
+
+        <div class="p-8 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 text-xl font-bold">
+            02
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-dark mb-3">Real Botanicals</h3>
+          <p class="text-stone-600 leading-relaxed text-sm">
+            Brewed using whole-leaf yerba mate and real fruit infusions. No artificial extracts or mystery compounds.
+          </p>
         </div>
-    </footer>
 
-    <script>
-        // Mobile Navigation Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const mainNav = document.getElementById('main-nav');
+        <div class="p-8 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 text-xl font-bold">
+            03
+          </div>
+          <h3 class="font-display text-xl font-bold text-brand-dark mb-3">Craft Small-Batch</h3>
+          <p class="text-stone-600 leading-relaxed text-sm">
+            Every run is steeped to exact temperature and duration curves to maximize aroma, flavor depth, and active antioxidants.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            menuToggle.addEventListener('click', function() {
-                mainNav.classList.toggle('active');
-            });
+  <!-- Products Section (Stripe-Ready) -->
+  <section id="products" class="py-24 px-6 bg-stone-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Crafted for Daily Fuel</h2>
+        <p class="text-stone-600">Available in individual packs or by the case for maximum refreshment.</p>
+      </div>
 
-            // Close menu when a link is clicked (for single-page navigation or on mobile)
-            mainNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                    }
-                });
-            });
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Product Card 1 -->
+        <div class="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-64 rounded-2xl bg-stone-100 flex items-center justify-center overflow-hidden mb-6">
+              <span class="text-stone-400 font-display font-medium text-sm">[ Can / 4-Pack Photo ]</span>
+            </div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-2xl font-bold text-brand-dark">Original Tonic 4-Pack</h3>
+              <span class="text-xl font-bold text-brand-green">$16.00</span>
+            </div>
+            <p class="text-stone-600 text-sm mb-6">Four 16oz cans of brewed whole-leaf yerba mate tonic.</p>
+          </div>
+          <!-- Stripe Payment Link Placement -->
+          <a href="#" class="w-full text-center py-3.5 rounded-full bg-brand-green text-white font-medium text-sm hover:bg-brand-dark transition-all">
+            Order 4-Pack
+          </a>
+        </div>
 
-            // Smooth Scroll for anchor links (if any) - optional, as CSS scroll-behavior is used
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="h-64 rounded-2xl bg-stone-100 flex items-center justify-center overflow-hidden mb-6">
+              <span class="text-stone-400 font-display font-medium text-sm">[ 12-Pack Case Photo ]</span>
+            </div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-display text-2xl font-bold text-brand-dark">The Stock-Up Case (12 Cans)</h3>
+              <span class="text-xl font-bold text-brand-green">$42.00</span>
+            </div>
+            <p class="text-stone-600 text-sm mb-6">Full twelve-can case. Best value for daily drinkers.</p>
+          </div>
+          <!-- Stripe Payment Link Placement -->
+          <a href="#" class="w-full text-center py-3.5 rounded-full bg-brand-green text-white font-medium text-sm hover:bg-brand-dark transition-all">
+            Order Case
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wholesale Inquiry Form -->
+  <section id="wholesale" class="py-24 px-6 bg-brand-cream border-t border-stone-200">
+    <div class="max-w-3xl mx-auto bg-white p-10 md:p-14 rounded-3xl border border-stone-200 shadow-sm">
+      <div class="text-center mb-10">
+        <h2 class="font-display text-3xl font-bold text-brand-dark mb-3">Carry Yertea in Your Shop</h2>
+        <p class="text-stone-600 text-sm">Now accepting wholesale partners for cafes, grocers, and gyms.</p>
+      </div>
+
+      <form action="#" method="POST" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Name</label>
+            <input type="text" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="Your name" required />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Business Name</label>
+            <input type="text" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="Cafe, market, or venue" required />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Email Address</label>
+          <input type="email" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="contact@business.com" required />
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Message & Estimated Volume</label>
+          <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="Tell us about your store location and weekly case requirements..."></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 rounded-xl bg-brand-dark text-white font-bold hover:bg-brand-green transition-colors">
+          Submit Wholesale Request
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-brand-dark text-stone-400 text-sm border-t border-stone-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="font-display font-bold text-white text-lg tracking-tight">
+        YERTEA<span class="text-brand-accent">.</span>
+      </div>
+      <div>
+        <p>© 2026 Yertea Co. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
