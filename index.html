@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yertea | Handcrafted Yerba Mate Tonic</title>
-  <meta name="description" content="Sustained energy, clean ingredients, and brewed refreshment. Experience real yerba mate." />
+  <title>Yertea | Clean, Sustained Energy</title>
+  
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/png" href="Images/yertea-logo-main.png" />
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,214 +14,27 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              green: '#2D5A27',
-              dark: '#121F13',
-              accent: '#E3A857',
-              cream: '#FAF8F5',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
 </head>
-<body class="bg-brand-cream text-stone-800 font-sans antialiased selection:bg-brand-green selection:text-white">
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-emerald-500 selection:text-black">
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-cream/80 backdrop-blur-md border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="font-display text-2xl font-bold tracking-tight text-brand-dark">
-        YERTEA<span class="text-brand-accent">.</span>
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Nav Brand with Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img 
+          src="Images/yertea-logo-main.png" 
+          alt="Yertea Logo" 
+          class="h-10 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+        />
+        <span class="text-xl font-extrabold tracking-tight text-white hidden sm:inline-block">
+          YERTEA
+        </span>
       </a>
-
-      <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-stone-600">
-        <a href="#about" class="hover:text-brand-green transition-colors">The Brew</a>
-        <a href="#products" class="hover:text-brand-green transition-colors">Products</a>
-        <a href="#wholesale" class="hover:text-brand-green transition-colors">Wholesale</a>
-      </div>
-
-      <div>
-        <a href="#products" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-green text-white font-medium text-sm hover:bg-brand-dark transition-all shadow-sm">
-          Order Online
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section with Video Background Support -->
-  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-brand-dark text-white">
-    <!-- Background Video / Image Fallback -->
-    <div class="absolute inset-0 z-0">
-      <!-- To use video: replace the src with your video file URL -->
-      <video class="w-full h-full object-cover opacity-35" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1920&q=80">
-        <source src="" type="video/mp4" />
-      </video>
-      <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent"></div>
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center py-24">
-      <span class="inline-block py-1.5 px-4 rounded-full bg-brand-accent/20 border border-brand-accent/30 text-brand-accent text-xs font-bold tracking-widest uppercase mb-6">
-        Clean Energy • Real Botanical Infusion
-      </span>
-      <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
-        Elevate Your Daily Ritual.
-      </h1>
-      <p class="text-lg md:text-xl text-stone-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-        Handcrafted ready-to-drink yerba mate tonic. Pure botanical sustained focus without the crash or artificial sweeteners.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-accent text-brand-dark font-bold text-base hover:bg-yellow-400 transition-all shadow-lg hover:shadow-xl">
-          Shop Cans & Cases
-        </a>
-        <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-base backdrop-blur-sm border border-white/20 transition-all">
-          Explore Ingredients
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Feature Highlights -->
-  <section id="about" class="py-24 px-6 border-b border-stone-200">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-        <div class="p-8 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 text-xl font-bold">
-            01
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-3">Sustained Clarity</h3>
-          <p class="text-stone-600 leading-relaxed text-sm">
-            Naturally balanced caffeine paired with theobromine provides calm, prolonged alertness with zero sudden drops.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 text-xl font-bold">
-            02
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-3">Real Botanicals</h3>
-          <p class="text-stone-600 leading-relaxed text-sm">
-            Brewed using whole-leaf yerba mate and real fruit infusions. No artificial extracts or mystery compounds.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-white border border-stone-200/80 shadow-sm">
-          <div class="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center mb-6 text-xl font-bold">
-            03
-          </div>
-          <h3 class="font-display text-xl font-bold text-brand-dark mb-3">Craft Small-Batch</h3>
-          <p class="text-stone-600 leading-relaxed text-sm">
-            Every run is steeped to exact temperature and duration curves to maximize aroma, flavor depth, and active antioxidants.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Section (Stripe-Ready) -->
-  <section id="products" class="py-24 px-6 bg-stone-100">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="font-display text-4xl font-bold text-brand-dark mb-4">Crafted for Daily Fuel</h2>
-        <p class="text-stone-600">Available in individual packs or by the case for maximum refreshment.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Product Card 1 -->
-        <div class="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="h-64 rounded-2xl bg-stone-100 flex items-center justify-center overflow-hidden mb-6">
-              <span class="text-stone-400 font-display font-medium text-sm">[ Can / 4-Pack Photo ]</span>
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-display text-2xl font-bold text-brand-dark">Original Tonic 4-Pack</h3>
-              <span class="text-xl font-bold text-brand-green">$16.00</span>
-            </div>
-            <p class="text-stone-600 text-sm mb-6">Four 16oz cans of brewed whole-leaf yerba mate tonic.</p>
-          </div>
-          <!-- Stripe Payment Link Placement -->
-          <a href="#" class="w-full text-center py-3.5 rounded-full bg-brand-green text-white font-medium text-sm hover:bg-brand-dark transition-all">
-            Order 4-Pack
-          </a>
-        </div>
-
-        <!-- Product Card 2 -->
-        <div class="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="h-64 rounded-2xl bg-stone-100 flex items-center justify-center overflow-hidden mb-6">
-              <span class="text-stone-400 font-display font-medium text-sm">[ 12-Pack Case Photo ]</span>
-            </div>
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-display text-2xl font-bold text-brand-dark">The Stock-Up Case (12 Cans)</h3>
-              <span class="text-xl font-bold text-brand-green">$42.00</span>
-            </div>
-            <p class="text-stone-600 text-sm mb-6">Full twelve-can case. Best value for daily drinkers.</p>
-          </div>
-          <!-- Stripe Payment Link Placement -->
-          <a href="#" class="w-full text-center py-3.5 rounded-full bg-brand-green text-white font-medium text-sm hover:bg-brand-dark transition-all">
-            Order Case
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wholesale Inquiry Form -->
-  <section id="wholesale" class="py-24 px-6 bg-brand-cream border-t border-stone-200">
-    <div class="max-w-3xl mx-auto bg-white p-10 md:p-14 rounded-3xl border border-stone-200 shadow-sm">
-      <div class="text-center mb-10">
-        <h2 class="font-display text-3xl font-bold text-brand-dark mb-3">Carry Yertea in Your Shop</h2>
-        <p class="text-stone-600 text-sm">Now accepting wholesale partners for cafes, grocers, and gyms.</p>
-      </div>
-
-      <form action="#" method="POST" class="space-y-6">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Name</label>
-            <input type="text" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="Your name" required />
-          </div>
-          <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Business Name</label>
-            <input type="text" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="Cafe, market, or venue" required />
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Email Address</label>
-          <input type="email" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="contact@business.com" required />
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Message & Estimated Volume</label>
-          <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-green" placeholder="Tell us about your store location and weekly case requirements..."></textarea>
-        </div>
-        <button type="submit" class="w-full py-4 rounded-xl bg-brand-dark text-white font-bold hover:bg-brand-green transition-colors">
-          Submit Wholesale Request
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-12 px-6 bg-brand-dark text-stone-400 text-sm border-t border-stone-800">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="font-display font-bold text-white text-lg tracking-tight">
-        YERTEA<span class="text-brand-accent">.</span>
-      </div>
-      <div>
-        <p>© 2026 Yertea Co. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+      
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
