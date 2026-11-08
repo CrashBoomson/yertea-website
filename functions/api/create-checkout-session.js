@@ -1,14 +1,21 @@
 export async function onRequestPost(context) {
-  const { env } = context;
+  const { env, request } = context;
 
   if (!env.STRIPE_SECRET_KEY) {
     return new Response("Missing STRIPE_SECRET_KEY environment variable", { status: 500 });
   }
 
+  // Parse the selected price_id from the form data
+  const formData = await request.formData();
+  const selectedPriceId = formData.get("price_id");
+
+  if (!selectedPriceId) {
+    return new Response("Missing price_id", { status: 400 });
+  }
+
   const mode = "payment";
   const domain = env.DOMAIN || "https://www.yertea.co";
 
-  // Build standard urlencoded payload for the Stripe API
   const params = new URLSearchParams();
   params.append("ui_mode", "hosted_page");
   params.append("mode", mode);
@@ -21,7 +28,7 @@ export async function onRequestPost(context) {
   params.append("origin_context", "web");
   params.append("success_url", `${domain}/success?session_id={CHECKOUT_SESSION_ID}`);
   params.append("cancel_url", `${domain}`);
-  params.append("line_items[0][price]", "price_placeholder_case_or_pack");
+  params.append("line_items[0][price]", selectedPriceId);
   params.append("line_items[0][quantity]", "1");
 
   if (mode === "subscription") {
