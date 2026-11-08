@@ -43,34 +43,54 @@
 <body class="bg-yertea-dark text-white antialiased selection:bg-yertea-pink selection:text-white">
 
   <!-- ========================================================
-       STICKY NAVBAR
+       STICKY NAVBAR WITH INTEGRATED STRIPE CHECKOUT SELECTOR
        ======================================================== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-yertea-dark/80 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-yertea-dark/85 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
       
       <!-- Logo + Wordmark -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="#" class="flex items-center gap-3 group shrink-0">
         <img 
           src="Images/yertea-logo-main.png" 
           alt="Yertea Logo" 
-          class="h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-110"
+          class="h-10 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-110"
         />
-        <span class="font-display text-2xl font-black tracking-wider text-white">
+        <span class="font-display text-xl sm:text-2xl font-black tracking-wider text-white hidden sm:inline-block">
           YER<span class="text-yertea-green">TEA</span>
         </span>
       </a>
       
-      <!-- Center Links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-neutral-300">
-        <a href="#formula" class="hover:text-yertea-teal transition">The Brew</a>
+      <!-- Center Navigation Links -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-neutral-300">
+        <a href="#order" class="hover:text-yertea-teal transition">Shop</a>
+        <a href="#formula" class="hover:text-yertea-green transition">The Brew</a>
         <a href="#vibe" class="hover:text-yertea-pink transition">Why Mate?</a>
-        <a href="#wholesale" class="hover:text-yertea-green transition">Find & Stock</a>
+        <a href="#wholesale" class="hover:text-yertea-teal transition">Wholesale</a>
       </div>
       
-      <!-- CTA Button -->
-      <a href="#wholesale" class="bg-gradient-to-r from-yertea-pink to-yertea-green hover:opacity-90 text-white font-display uppercase tracking-wider text-xs font-black px-6 py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_20px_rgba(236,20,140,0.4)]">
-        Grab Some
-      </a>
+      <!-- Quick Checkout Form / Selector -->
+      <form action="/api/create-checkout-session" method="POST" class="flex items-center gap-2 m-0 p-0">
+        <select 
+          name="price_id" 
+          class="bg-neutral-900 border border-neutral-700 text-neutral-200 text-xs font-bold rounded-full px-3 py-2 focus:outline-none focus:border-yertea-teal cursor-pointer max-w-[150px] sm:max-w-none" 
+          required
+        >
+          <optgroup label="Single Bottles">
+            <option value="price_CLASSIC_SINGLE_ID">Classic - Single Bottle</option>
+          </optgroup>
+          <optgroup label="6-Packs">
+            <option value="price_CLASSIC_6PACK_ID">Classic - 6-Pack</option>
+          </optgroup>
+        </select>
+
+        <button 
+          type="submit" 
+          class="bg-gradient-to-r from-yertea-pink to-yertea-green hover:opacity-90 text-white font-display uppercase tracking-wider text-xs font-black px-4 sm:px-5 py-2.5 rounded-full transition transform hover:scale-105 shadow-[0_0_20px_rgba(236,20,140,0.4)] cursor-pointer whitespace-nowrap"
+        >
+          Grab Some ⚡
+        </button>
+      </form>
+
     </div>
   </nav>
 
@@ -84,7 +104,6 @@
       <video autoplay loop muted playsinline class="w-full h-full object-cover scale-105 filter brightness-75 contrast-110">
         <source src="Images/hero-video.mp4" type="video/mp4" />
       </video>
-      <!-- Gradient Overlays -->
       <div class="absolute inset-0 bg-gradient-to-b from-yertea-dark/70 via-yertea-dark/40 to-yertea-dark z-10"></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,219,0.15),transparent_70%)] z-10"></div>
     </div>
@@ -92,7 +111,7 @@
     <!-- Hero Content -->
     <div class="relative z-20 max-w-5xl mx-auto px-6 text-center">
       
-      <!-- Electric Pill Badge -->
+      <!-- Pill Badge -->
       <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 border-yertea-teal bg-yertea-teal/10 text-yertea-teal font-display font-black text-xs uppercase tracking-widest mb-6 animate-pulse">
         ⚡ Certified Natural Energy • No Chemical Crash
       </div>
@@ -112,8 +131,8 @@
       
       <!-- Hero Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#formula" class="w-full sm:w-auto bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform active:scale-95 shadow-[0_0_30px_rgba(72,184,67,0.4)]">
-          See What's Inside 🌿
+        <a href="#order" class="w-full sm:w-auto bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform active:scale-95 shadow-[0_0_30px_rgba(72,184,67,0.4)]">
+          Order Online 🌿
         </a>
         <a href="#wholesale" class="w-full sm:w-auto border-2 border-yertea-pink bg-yertea-pink/10 hover:bg-yertea-pink text-white font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform active:scale-95 shadow-[0_0_25px_rgba(236,20,140,0.3)]">
           Stock In Your Venue 🔥
@@ -122,12 +141,76 @@
     </div>
 
     <!-- Scroll Indicator -->
-    <a href="#formula" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/50 hover:text-white transition animate-bounce">
+    <a href="#order" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/50 hover:text-white transition animate-bounce">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </a>
   </header>
+
+  <!-- ========================================================
+       ORDER SECTION: DIRECT CHECKOUT SELECTOR CARDS
+       ======================================================== -->
+  <section id="order" class="py-24 bg-neutral-950 border-t border-white/10 relative">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <span class="inline-block px-4 py-1.5 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
+        Direct From The Brewery
+      </span>
+      <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-4">
+        Choose Your Stash.
+      </h2>
+      <p class="text-neutral-400 text-lg mb-12 max-w-xl mx-auto">
+        Stock up for game night, workouts, or long work sessions. Shipped ice-cold in recyclable glass.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto text-left">
+        
+        <!-- Option 1: Single Bottle -->
+        <div class="p-8 rounded-3xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between hover:border-yertea-teal/50 transition">
+          <div>
+            <span class="text-xs uppercase font-display font-black text-yertea-teal tracking-wider block mb-2">The Daily Driver</span>
+            <h3 class="text-2xl font-black text-white font-display mb-2">Single Bottle</h3>
+            <p class="text-neutral-400 text-sm mb-6">Perfect for a single clean energy hit. 12oz long-neck cold brew.</p>
+          </div>
+          <form action="/api/create-checkout-session" method="POST">
+            <div class="mb-4">
+              <label class="block text-xs uppercase font-bold text-neutral-400 mb-2">Select Flavor:</label>
+              <select name="price_id" class="w-full bg-neutral-950 border border-neutral-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-yertea-teal" required>
+                <option value="price_CLASSIC_SINGLE_ID">Yertea Classic</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full bg-neutral-800 hover:bg-neutral-700 border border-white/10 text-white font-display uppercase tracking-wider font-black py-3.5 rounded-xl transition text-sm cursor-pointer">
+              Checkout Single →
+            </button>
+          </form>
+        </div>
+
+        <!-- Option 2: 6-Pack -->
+        <div class="p-8 rounded-3xl bg-neutral-900 border-2 border-yertea-green relative flex flex-col justify-between shadow-[0_0_30px_rgba(72,184,67,0.15)]">
+          <div class="absolute -top-3.5 right-6 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+            Best Value
+          </div>
+          <div>
+            <span class="text-xs uppercase font-display font-black text-yertea-green tracking-wider block mb-2">The Weekly Supply</span>
+            <h3 class="text-2xl font-black text-white font-display mb-2">6-Pack Case</h3>
+            <p class="text-neutral-400 text-sm mb-6">Keep your fridge stocked. Six 12oz bottles of naturally brewed energy.</p>
+          </div>
+          <form action="/api/create-checkout-session" method="POST">
+            <div class="mb-4">
+              <label class="block text-xs uppercase font-bold text-neutral-400 mb-2">Select Flavor:</label>
+              <select name="price_id" class="w-full bg-neutral-950 border border-neutral-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-yertea-green" required>
+                <option value="price_CLASSIC_6PACK_ID">Yertea Classic (6 Bottles)</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-yertea-green to-yertea-teal hover:opacity-90 text-yertea-dark font-display uppercase tracking-wider font-black py-3.5 rounded-xl transition transform active:scale-95 shadow-[0_0_20px_rgba(72,184,67,0.3)] text-sm cursor-pointer">
+              Checkout 6-Pack ⚡
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ========================================================
        SECTION 1: "IT'S BETTER WHEN YOU KNOW" (CLEAN INGREDIENTS)
@@ -137,7 +220,7 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
-        <!-- Left: Image Box for Bottles/Cans -->
+        <!-- Left: Image Box for Bottles -->
         <div class="relative group">
           <div class="absolute -inset-2 bg-gradient-to-r from-yertea-teal to-yertea-pink rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
           <div class="relative rounded-2xl overflow-hidden border-2 border-white/10 bg-neutral-900/90 aspect-[4/5] flex items-center justify-center p-4">
@@ -375,6 +458,7 @@
         <span class="font-display tracking-wider text-neutral-400">© YERTEA CO. ALL RIGHTS RESERVED.</span>
       </div>
       <div class="flex items-center gap-8 text-neutral-400">
+        <a href="#order" class="hover:text-yertea-teal transition">Shop</a>
         <a href="#formula" class="hover:text-yertea-green transition">The Brew</a>
         <a href="#vibe" class="hover:text-yertea-pink transition">The Vibe</a>
         <a href="#wholesale" class="hover:text-yertea-teal transition">Wholesale</a>
