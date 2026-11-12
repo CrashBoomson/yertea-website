@@ -42,9 +42,10 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
     
-    /* Sleek hover-bridge dropdown handling (prevents menu from closing when moving cursor down) */
+    /* Primary "Grab Yertea" dropdown handling */
     .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
+    .dropdown:focus-within .dropdown-menu,
+    .dropdown.is-open .dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateY(0) scale(1);
@@ -59,190 +60,299 @@
                   transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
                   visibility 0.18s;
     }
-    .dropdown:hover .chevron-icon {
+    .dropdown:hover .chevron-icon,
+    .dropdown.is-open .chevron-icon {
       transform: rotate(180deg);
+    }
+
+    /* Nested sub-dropdown handling ("Grab Some" & "Grab A Lot") */
+    .sub-dropdown:hover .sub-dropdown-menu,
+    .sub-dropdown:focus-within .sub-dropdown-menu,
+    .sub-dropdown.is-open .sub-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0) translateY(0) scale(1);
+      pointer-events: auto;
+      max-height: 320px;
+    }
+
+    /* Desktop flyout to the left so it never clips off the right viewport edge */
+    @media (min-width: 768px) {
+      .sub-dropdown-menu {
+        position: absolute;
+        top: -0.5rem;
+        right: 100%;
+        padding-right: 0.625rem;
+        width: 17.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(8px) scale(0.98);
+        pointer-events: none;
+        transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.18s;
+      }
+      .sub-dropdown:hover .sub-chevron,
+      .sub-dropdown.is-open .sub-chevron {
+        transform: rotate(90deg);
+      }
+    }
+
+    /* Mobile smooth accordion sub-menu inside the dropdown */
+    @media (max-width: 767px) {
+      .sub-dropdown-menu {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.25s ease, opacity 0.2s ease, visibility 0.2s;
+      }
+      .sub-dropdown.is-open .sub-chevron {
+        transform: rotate(180deg);
+      }
+    }
+
+    /* Hide scrollbar on mobile nav strip while keeping horizontal scroll smooth if needed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   </style>
 </head>
 <body class="bg-[#4A6D7C] text-white antialiased selection:bg-yertea-pink selection:text-white">
 
   <!-- ========================================================
-       STICKY NAVBAR WITH ACTUAL LOGO TOPPER & DROPDOWNS
+       STICKY NAVBAR: CENTER-STAGE LOGO + "GRAB YERTEA" + MOBILE LINKS
        ======================================================== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#4A6D7C]/90 backdrop-blur-xl border-b border-white/15 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between gap-4">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#4A6D7C]/92 backdrop-blur-xl border-b border-white/15 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
-      <!-- Brand Logo Topper (Standalone Actual Logo) -->
-      <a href="#" aria-label="Yertea Home" class="flex items-center group shrink-0 py-1">
-        <img 
-          src="Images/yertea-logo-main.png" 
-          alt="Yertea" 
-          class="h-14 sm:h-16 md:h-[68px] w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]"
-        />
-      </a>
-      
-      <!-- Center Navigation Links -->
-      <div class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-white/85">
-        <a href="#flavors" class="hover:text-yertea-teal transition">The Flavors</a>
-        <a href="#formula" class="hover:text-yertea-green transition">The Brew</a>
-        <a href="#vibe" class="hover:text-yertea-pink transition">Why Mate?</a>
-        <a href="#wholesale" class="hover:text-yertea-teal transition">Wholesale</a>
-      </div>
-      
-      <!-- Right CTA Dropdown Group -->
-      <div class="flex items-center gap-2.5 sm:gap-3">
+      <!-- Top Bar: 3-Column Grid to Keep Logo Dead-Center -->
+      <div class="grid grid-cols-[1fr_auto_1fr] items-center h-24 sm:h-28 md:h-32 gap-2">
         
-        <!-- 1. "Grab Some" Dropdown Menu (Singles) -->
-        <div class="relative dropdown">
-          <button 
-            type="button" 
-            class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-pink to-yertea-green hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs font-black px-4 sm:px-5 py-2.5 sm:py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_20px_rgba(236,20,140,0.35)] cursor-pointer"
-          >
-            <span>Grab Some</span>
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-
-          <!-- Hover Bridge + Dropdown Card -->
-          <div class="dropdown-menu absolute right-0 pt-2.5 w-72 z-50">
-            <div class="bg-[#243942]/95 border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] p-2 backdrop-blur-2xl">
-              <div class="flex items-center justify-between px-3 py-2 border-b border-white/10">
-                <span class="text-[10px] font-display font-black uppercase tracking-widest text-white/60">Single Bottles</span>
-                <span class="text-[10px] font-display font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-yertea-teal">12oz Glass</span>
-              </div>
-
-              <a 
-                href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-between px-3 py-2.5 mt-1 rounded-xl hover:bg-white/10 transition group"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]"></span>
-                  <div>
-                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Classic Singles</p>
-                    <p class="text-[11px] text-white/65">Pure, bold botanical mate</p>
-                  </div>
-                </div>
-                <span class="text-white/40 group-hover:text-yertea-green group-hover:translate-x-0.5 transition-all">→</span>
-              </a>
-
-              <a 
-                href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]"></span>
-                  <div>
-                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Lemon Honey Singles</p>
-                    <p class="text-[11px] text-white/65">Crisp citrus & natural honey</p>
-                  </div>
-                </div>
-                <span class="text-white/40 group-hover:text-yertea-teal group-hover:translate-x-0.5 transition-all">→</span>
-              </a>
-
-              <a 
-                href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]"></span>
-                  <div>
-                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Raspberry Singles</p>
-                    <p class="text-[11px] text-white/65">Wild berry tart punch</p>
-                  </div>
-                </div>
-                <span class="text-white/40 group-hover:text-yertea-pink group-hover:translate-x-0.5 transition-all">→</span>
-              </a>
-            </div>
-          </div>
+        <!-- Left Column: Desktop Navigation Links (Balanced against right button) -->
+        <div class="hidden lg:flex items-center justify-start gap-6 xl:gap-8 text-xs xl:text-sm font-bold uppercase tracking-wider text-white/90">
+          <a href="#flavors" class="hover:text-yertea-teal transition">The Flavors</a>
+          <a href="#formula" class="hover:text-yertea-green transition">The Brew</a>
+          <a href="#vibe" class="hover:text-yertea-pink transition">Why Mate?</a>
+          <a href="#wholesale" class="hover:text-yertea-teal transition">Wholesale</a>
         </div>
+        <!-- Mobile/Tablet Left Spacer to preserve true centering of the logo -->
+        <div class="lg:hidden"></div>
 
-        <!-- 2. "Grab Alot" Dropdown Menu (Six-Packs) -->
-        <div class="relative dropdown">
-          <button 
-            type="button" 
-            class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-teal via-yertea-green to-yertea-pink hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs font-black px-4 sm:px-5 py-2.5 sm:py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_22px_rgba(0,229,219,0.35)] cursor-pointer"
-          >
-            <span>Grab Alot</span>
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
+        <!-- Center Column: Prominent Center-Stage Yertea Logo -->
+        <a href="#" aria-label="Yertea Home" class="flex items-center justify-center group py-1">
+          <img 
+            src="Images/yertea-logo-main.png" 
+            alt="Yertea" 
+            class="h-20 sm:h-24 md:h-28 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_4px_16px_rgba(0,0,0,0.28)]"
+          />
+        </a>
+        
+        <!-- Right Column: Highlighted "Grab Yertea" Master Dropdown -->
+        <div class="flex items-center justify-end">
+          <div class="relative dropdown" id="grab-yertea-dropdown">
+            <button 
+              type="button" 
+              id="grab-yertea-btn"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-pink via-yertea-green to-yertea-teal hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs md:text-sm font-black px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full transition transform hover:scale-105 shadow-[0_0_25px_rgba(236,20,140,0.45)] ring-2 ring-white/25 cursor-pointer"
+            >
+              <span>Grab Yertea</span>
+              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
 
-          <!-- Hover Bridge + Dropdown Card -->
-          <div class="dropdown-menu absolute right-0 pt-2.5 w-72 z-50">
-            <div class="bg-[#243942]/95 border border-yertea-teal/40 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] p-2 backdrop-blur-2xl">
-              <div class="flex items-center justify-between px-3 py-2 border-b border-white/10">
-                <span class="text-[10px] font-display font-black uppercase tracking-widest text-white/60">Stash Bundles</span>
-                <span class="text-[10px] font-display font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-yertea-green/20 text-yertea-green border border-yertea-green/30">6-Packs</span>
+            <!-- Master Dropdown Menu -->
+            <div class="dropdown-menu absolute right-0 pt-2.5 w-72 sm:w-76 z-50">
+              <div class="bg-[#243942]/95 border border-white/20 rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-2.5 backdrop-blur-2xl space-y-1.5">
+                
+                <div class="px-3 py-1.5 text-[10px] font-display font-black uppercase tracking-widest text-white/55 border-b border-white/10">
+                  Choose Your Stash Size
+                </div>
+
+                <!-- SUB-DROPDOWN 1: "Grab Some" (Singles) -->
+                <div class="relative sub-dropdown">
+                  <button 
+                    type="button" 
+                    class="sub-dropdown-trigger w-full flex items-center justify-between px-3.5 py-3 rounded-xl bg-white/5 hover:bg-white/12 border border-white/10 hover:border-yertea-pink/50 transition text-left cursor-pointer group"
+                  >
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Grab Some</span>
+                        <span class="text-[10px] font-display font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-yertea-teal">Singles</span>
+                      </div>
+                      <p class="text-[11px] text-white/65 mt-0.5">Individual 12oz glass bottles</p>
+                    </div>
+                    <svg class="w-4 h-4 text-white/60 group-hover:text-white sub-chevron transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+
+                  <!-- Sub-menu Flavors: Grab Some -->
+                  <div class="sub-dropdown-menu z-50">
+                    <div class="bg-[#1c2e36]/98 border border-white/20 rounded-xl md:rounded-2xl shadow-2xl p-2 mt-1.5 md:mt-0 backdrop-blur-2xl">
+                      <div class="hidden md:flex items-center justify-between px-3 py-1.5 border-b border-white/10 mb-1">
+                        <span class="text-[10px] font-display font-black uppercase tracking-widest text-white/60">Single Bottles</span>
+                        <span class="text-[10px] font-display font-black uppercase tracking-wider text-yertea-teal">12oz Glass</span>
+                      </div>
+
+                      <a 
+                        href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+                      >
+                        <div class="flex items-center gap-3">
+                          <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]"></span>
+                          <div>
+                            <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Classic Singles</p>
+                            <p class="text-[11px] text-white/65">Pure, bold botanical mate</p>
+                          </div>
+                        </div>
+                        <span class="text-white/40 group-hover:text-yertea-green group-hover:translate-x-0.5 transition-all">→</span>
+                      </a>
+
+                      <a 
+                        href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+                      >
+                        <div class="flex items-center gap-3">
+                          <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]"></span>
+                          <div>
+                            <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Lemon Honey Singles</p>
+                            <p class="text-[11px] text-white/65">Crisp citrus & natural honey</p>
+                          </div>
+                        </div>
+                        <span class="text-white/40 group-hover:text-yertea-teal group-hover:translate-x-0.5 transition-all">→</span>
+                      </a>
+
+                      <a 
+                        href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+                      >
+                        <div class="flex items-center gap-3">
+                          <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]"></span>
+                          <div>
+                            <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Raspberry Singles</p>
+                            <p class="text-[11px] text-white/65">Wild berry tart punch</p>
+                          </div>
+                        </div>
+                        <span class="text-white/40 group-hover:text-yertea-pink group-hover:translate-x-0.5 transition-all">→</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SUB-DROPDOWN 2: "Grab A Lot" (Six-Packs) -->
+                <div class="relative sub-dropdown">
+                  <button 
+                    type="button" 
+                    class="sub-dropdown-trigger w-full flex items-center justify-between px-3.5 py-3 rounded-xl bg-white/5 hover:bg-white/12 border border-white/10 hover:border-yertea-green/50 transition text-left cursor-pointer group"
+                  >
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Grab A Lot</span>
+                        <span class="text-[10px] font-display font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-yertea-green/20 text-yertea-green border border-yertea-green/30">6-Packs</span>
+                      </div>
+                      <p class="text-[11px] text-white/65 mt-0.5">6 × 12oz glass bottle bundles</p>
+                    </div>
+                    <svg class="w-4 h-4 text-white/60 group-hover:text-white sub-chevron transition-transform duration-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+
+                  <!-- Sub-menu Flavors: Grab A Lot -->
+                  <div class="sub-dropdown-menu z-50">
+                    <div class="bg-[#1c2e36]/98 border border-yertea-teal/40 rounded-xl md:rounded-2xl shadow-2xl p-2 mt-1.5 md:mt-0 backdrop-blur-2xl">
+                      <div class="hidden md:flex items-center justify-between px-3 py-1.5 border-b border-white/10 mb-1">
+                        <span class="text-[10px] font-display font-black uppercase tracking-widest text-white/60">Stash Bundles</span>
+                        <span class="text-[10px] font-display font-black uppercase tracking-wider text-yertea-green">6-Packs</span>
+                      </div>
+
+                      <a 
+                        href="https://buy.stripe.com/6oU4gy99l14vagM5vv7AI00" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+                      >
+                        <div class="flex items-center gap-3">
+                          <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]"></span>
+                          <div>
+                            <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Classic Six-Packs</p>
+                            <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
+                          </div>
+                        </div>
+                        <span class="text-white/40 group-hover:text-yertea-green group-hover:translate-x-0.5 transition-all">→</span>
+                      </a>
+
+                      <a 
+                        href="https://buy.stripe.com/7sY4gyadpeVl4Wse217AI01" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+                      >
+                        <div class="flex items-center gap-3">
+                          <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]"></span>
+                          <div>
+                            <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Lemon Honey Six-Packs</p>
+                            <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
+                          </div>
+                        </div>
+                        <span class="text-white/40 group-hover:text-yertea-teal group-hover:translate-x-0.5 transition-all">→</span>
+                      </a>
+
+                      <a 
+                        href="https://buy.stripe.com/9B63cu1GTaF5agM4rr7AI02" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+                      >
+                        <div class="flex items-center gap-3">
+                          <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]"></span>
+                          <div>
+                            <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Raspberry Six-Packs</p>
+                            <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
+                          </div>
+                        </div>
+                        <span class="text-white/40 group-hover:text-yertea-pink group-hover:translate-x-0.5 transition-all">→</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-
-              <a 
-                href="https://buy.stripe.com/6oU4gy99l14vagM5vv7AI00" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-between px-3 py-2.5 mt-1 rounded-xl hover:bg-white/10 transition group"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]"></span>
-                  <div>
-                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Classic Six-Packs</p>
-                    <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
-                  </div>
-                </div>
-                <span class="text-white/40 group-hover:text-yertea-green group-hover:translate-x-0.5 transition-all">→</span>
-              </a>
-
-              <a 
-                href="https://buy.stripe.com/7sY4gyadpeVl4Wse217AI01" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]"></span>
-                  <div>
-                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Lemon Honey Six-Packs</p>
-                    <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
-                  </div>
-                </div>
-                <span class="text-white/40 group-hover:text-yertea-teal group-hover:translate-x-0.5 transition-all">→</span>
-              </a>
-
-              <a 
-                href="https://buy.stripe.com/9B63cu1GTaF5agM4rr7AI02" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-              >
-                <div class="flex items-center gap-3">
-                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]"></span>
-                  <div>
-                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Raspberry Six-Packs</p>
-                    <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
-                  </div>
-                </div>
-                <span class="text-white/40 group-hover:text-yertea-pink group-hover:translate-x-0.5 transition-all">→</span>
-              </a>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
 
+    <!-- Always-Visible Mobile / Tablet Section Navigation Bar -->
+    <div class="lg:hidden border-t border-white/10 bg-[#3b5865]/80 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-around sm:justify-center sm:gap-8 text-[11px] sm:text-xs font-display font-black uppercase tracking-wider text-white/90 overflow-x-auto no-scrollbar whitespace-nowrap">
+        <a href="#flavors" class="hover:text-yertea-teal active:text-yertea-teal transition py-0.5">The Flavors</a>
+        <a href="#formula" class="hover:text-yertea-green active:text-yertea-green transition py-0.5">The Brew</a>
+        <a href="#vibe" class="hover:text-yertea-pink active:text-yertea-pink transition py-0.5">Why Mate?</a>
+        <a href="#wholesale" class="hover:text-yertea-teal active:text-yertea-teal transition py-0.5">Wholesale</a>
+      </div>
     </div>
   </nav>
 
   <!-- ========================================================
        HERO SECTION WITH VIDEO BACKGROUND
        ======================================================== -->
-  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 lg:pt-32">
     
     <!-- Background Looping Video Container -->
     <div class="absolute inset-0 z-0 overflow-hidden">
@@ -297,7 +407,7 @@
   <!-- ========================================================
        BUY HERE SECTION: DIRECT FLAVOR SHOWCASE & CHECKOUT
        ======================================================== -->
-  <section id="flavors" class="py-24 bg-[#3b5865] border-t border-white/15 relative">
+  <section id="flavors" class="py-24 bg-[#3b5865] border-t border-white/15 relative scroll-mt-28">
     <div class="max-w-7xl mx-auto px-6 text-center">
       
       <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
@@ -326,7 +436,7 @@
           onclick="setPackSize('sixpack')"
           class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 text-white/75 hover:text-white cursor-pointer"
         >
-          Grab Alot (6-Packs) 🔥
+          Grab A Lot (6-Packs) 🔥
         </button>
       </div>
 
@@ -426,7 +536,7 @@
   <!-- ========================================================
        SECTION 1: "IT'S BETTER WHEN YOU KNOW" (CLEAN INGREDIENTS)
        ======================================================== -->
-  <section id="formula" class="py-24 bg-gradient-to-b from-[#4A6D7C] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 relative">
+  <section id="formula" class="py-24 bg-gradient-to-b from-[#4A6D7C] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 relative scroll-mt-28">
     <div class="max-w-7xl mx-auto px-6">
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -495,7 +605,7 @@
   <!-- ========================================================
        SECTION 2: THE VIBE
        ======================================================== -->
-  <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden">
+  <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden scroll-mt-28">
     <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-yertea-pink/20 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-6">
@@ -553,7 +663,7 @@
   <!-- ========================================================
        SECTION 3: WHOLESALE, BARS, CAFES & DISTRIBUTION
        ======================================================== -->
-  <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15">
+  <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 scroll-mt-28">
     <div class="max-w-4xl mx-auto px-6 text-center">
       
       <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
@@ -665,7 +775,7 @@
   <footer class="py-12 bg-[#2e4651] border-t border-white/15 text-center text-xs text-white/70 font-bold">
     <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <img src="Images/yertea-logo-main.png" alt="Yertea" class="h-8 w-auto opacity-95" />
+        <img src="Images/yertea-logo-main.png" alt="Yertea" class="h-10 w-auto opacity-95" />
         <span class="font-display tracking-wider text-white/80">© YERTEA CO. ALL RIGHTS RESERVED.</span>
       </div>
       <div class="flex items-center gap-8 text-white/80">
@@ -677,7 +787,7 @@
     </div>
   </footer>
 
-  <!-- Interactive Pack Size Switcher Script -->
+  <!-- Interactive Pack Size Switcher & Mobile-Friendly Dropdown Script -->
   <script>
     const checkoutConfig = {
       singles: {
@@ -741,6 +851,39 @@
       ctaRaspberry.href = data.raspberry.url;
       ctaRaspberry.textContent = data.raspberry.label;
     }
+
+    // Touch / Click support for "Grab Yertea" and its nested "Grab Some" / "Grab A Lot" sub-menus
+    const masterDropdown = document.getElementById('grab-yertea-dropdown');
+    const masterBtn = document.getElementById('grab-yertea-btn');
+
+    masterBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = masterDropdown.classList.toggle('is-open');
+      masterBtn.setAttribute('aria-expanded', isOpen);
+      if (!isOpen) {
+        document.querySelectorAll('.sub-dropdown').forEach(sub => sub.classList.remove('is-open'));
+      }
+    });
+
+    document.querySelectorAll('.sub-dropdown-trigger').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const parentSub = trigger.closest('.sub-dropdown');
+        const wasOpen = parentSub.classList.contains('is-open');
+        document.querySelectorAll('.sub-dropdown').forEach(sub => sub.classList.remove('is-open'));
+        if (!wasOpen) {
+          parentSub.classList.add('is-open');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!masterDropdown.contains(e.target)) {
+        masterDropdown.classList.remove('is-open');
+        masterBtn.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.sub-dropdown').forEach(sub => sub.classList.remove('is-open'));
+      }
+    });
   </script>
 
 </body>
