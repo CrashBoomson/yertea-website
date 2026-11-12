@@ -189,7 +189,7 @@
             "name": "Can cafes, bars, gyms, or retailers stock Yertea wholesale?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Yertea supplies wholesale cases, cafe and bar bottle programs, and event tasting drops. Venue owners can request wholesale pricing and sample drops directly through the Wholesale inquiry form on yertea.co."
+              "text": "Yes. Yertea supplies wholesale cases, cafe and bar bottle programs, event tasting drops, and creator affiliate partnerships. Interested partners can apply directly through the inquiry form on yertea.co."
             }
           }
         ]
@@ -895,7 +895,7 @@
     </section>
 
     <!-- ========================================================
-         SECTION 2: THE VIBE
+         SECTION 2: THE VIBE (WITH CREATOR / AFFILIATE CTA)
          ======================================================== -->
     <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden scroll-mt-32">
       <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-yertea-pink/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -917,21 +917,21 @@
               Yertea delivers that euphoric, locked-in mental flow state with the smooth energy curve of theobromine and mateine. Perfect for long game sessions, studio hours, morning sets, or nights out with friends.
             </p>
 
-            <div class="flex items-center gap-6">
-              <div>
-                <p class="font-display text-3xl font-black text-yertea-green">100%</p>
-                <p class="text-xs uppercase text-white/75 font-bold">Real Yerba Mate</p>
-              </div>
-              <div class="w-px h-10 bg-white/20"></div>
-              <div>
-                <p class="font-display text-3xl font-black text-yertea-pink">0%</p>
-                <p class="text-xs uppercase text-white/75 font-bold">Lab Synthetics</p>
-              </div>
-              <div class="w-px h-10 bg-white/20"></div>
-              <div>
-                <p class="font-display text-3xl font-black text-yertea-teal">100%</p>
-                <p class="text-xs uppercase text-white/75 font-bold">Drinkable Euphoria</p>
-              </div>
+            <!-- Creator / Affiliate Program CTA Block -->
+            <div class="p-6 rounded-2xl bg-[#2e4651]/85 border border-yertea-pink/40 backdrop-blur-sm shadow-lg">
+              <p class="font-display text-xs font-black uppercase tracking-widest text-yertea-teal mb-1.5">
+                Creator & Affiliate Program
+              </p>
+              <p class="text-sm text-white/85 mb-4 leading-relaxed">
+                Stream, film, DJ, or create? Partner with Yertea as an affiliate creator to earn commissions and fuel your sessions.
+              </p>
+              <a 
+                href="#wholesale" 
+                onclick="selectAffiliateInquiry()"
+                class="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-yertea-pink to-yertea-teal hover:brightness-110 text-white font-display uppercase tracking-wider font-black px-7 py-4 rounded-xl text-sm transition transform hover:-translate-y-0.5 active:scale-95 shadow-[0_8px_25px_rgba(236,20,140,0.35)]"
+              >
+                Partner With Us As A Creator 🚀
+              </a>
             </div>
           </div>
 
@@ -1002,7 +1002,7 @@
     </section>
 
     <!-- ========================================================
-         SECTION 4: WHOLESALE, BARS, CAFES & DISTRIBUTION
+         SECTION 4: WHOLESALE, CREATOR AFFILIATES & DISTRIBUTION
          ======================================================== -->
     <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 scroll-mt-32">
       <div class="max-w-4xl mx-auto px-6 text-center">
@@ -1014,7 +1014,7 @@
           Put Yertea In Your Cooler.
         </h2>
         <p class="text-white/85 text-lg mb-10 max-w-xl mx-auto">
-          Stocking cafes, climbing gyms, gaming hubs, bars, and craft grocers. Drop your details below for wholesale pricing, sample drops, or early cases.
+          Stocking cafes, climbing gyms, gaming hubs, bars, craft grocers, and partnering with creators. Drop your details below to connect.
         </p>
 
         <!-- Active Web3Forms Inquiry Form with In-Page AJAX Confirmation -->
@@ -1026,20 +1026,20 @@
             class="space-y-4 text-left"
           >
             <input type="hidden" name="access_key" value="347cd031-59a0-49cb-905c-bdb24645f4e8" />
-            <input type="hidden" name="subject" value="⚡ New Yertea Wholesale / Retail Inquiry" />
+            <input type="hidden" name="subject" value="⚡ New Yertea Wholesale / Creator Inquiry" />
             <input type="hidden" name="from_name" value="Yertea Web Inquiry" />
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
             <div>
               <label for="ws-name" class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
-                Your Name / Business
+                Your Name / Business / Handle
               </label>
               <input 
                 id="ws-name"
                 type="text" 
                 name="name" 
                 class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-green transition text-sm" 
-                placeholder="e.g. Acme Market & Coffee" 
+                placeholder="e.g. Acme Market & Coffee or @creator" 
                 required 
               />
             </div>
@@ -1082,6 +1082,7 @@
               >
                 <option value="Retail Wholesale Cases">Retail Wholesale Cases</option>
                 <option value="Cafe / Bar Bottles & Tap">Cafe / Bar Bottles & Tap</option>
+                <option value="Creator / Affiliate Marketing">Creator / Affiliate Marketing</option>
                 <option value="Event Sponsorship / Tasting Drop">Event Sponsorship / Tasting Drop</option>
                 <option value="Direct Consumer Pre-Order">Direct Consumer Pre-Order</option>
               </select>
@@ -1096,7 +1097,7 @@
                 name="message" 
                 rows="3" 
                 class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-green transition text-sm" 
-                placeholder="Location, estimated volume, or questions..." 
+                placeholder="Location, social links, estimated volume, or questions..." 
                 required
               ></textarea>
             </div>
@@ -1106,7 +1107,7 @@
               type="submit" 
               class="w-full bg-gradient-to-r from-yertea-green via-yertea-teal to-yertea-pink hover:opacity-90 text-white font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_6px_25px_rgba(72,184,67,0.3)] text-sm cursor-pointer"
             >
-              Send Wholesale Request 🚀
+              Send Request 🚀
             </button>
             <p id="ws-error-msg" class="hidden text-xs text-yertea-pink font-bold text-center pt-1"></p>
           </form>
@@ -1119,7 +1120,7 @@
               Request Locked In!
             </h3>
             <p class="text-white/85 text-sm leading-relaxed max-w-sm mx-auto">
-              Thanks for reaching out to Yertea Co. We've received your inquiry and will follow up shortly with wholesale pricing, spec sheets, or sample drop details.
+              Thanks for reaching out to Yertea Co. We've received your inquiry and will follow up shortly with wholesale pricing, creator details, or sample drop info.
             </p>
             <button 
               type="button" 
@@ -1483,6 +1484,15 @@
 
     function dismissStatusBanner() {
       document.getElementById('checkout-status-banner').classList.add('hidden');
+    }
+
+    // Pre-select "Creator / Affiliate Marketing" in the bottom form when clicked from The Vibe CTA
+    function selectAffiliateInquiry() {
+      resetWholesaleForm();
+      const selectEl = document.getElementById('ws-type');
+      if (selectEl) {
+        selectEl.value = 'Creator / Affiliate Marketing';
+      }
     }
 
     // Initialize initial UI state
