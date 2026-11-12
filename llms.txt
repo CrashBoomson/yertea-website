@@ -1,0 +1,19 @@
+# Yertea Co.
+
+> Hot-brewed botanical yerba mate energy tonic packaged in 12oz long-neck glass bottles. Delivers 150mg of natural caffeine with real fruit juice, cane sugar, and raw wildflower honey—zero synthetic taurine, artificial sweeteners, or chemical crash.
+
+## Core Product Line (12oz Long-Neck Glass Bottles)
+- [Yertea Classic Singles](https://buy.stripe.com/7sY28qclx3cDex20bb7AI03): Original hot-brewed yerba mate lightly sweetened with cane sugar and honey (150mg natural caffeine).
+- [Yertea Classic Six-Pack](https://buy.stripe.com/6oU4gy99l14vagM5vv7AI00): Six-pack bundle of 12oz Classic bottles.
+- [Yertea Lemon Honey Singles](https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05): Hot-brewed yerba mate with fresh-pressed lemon juice and raw wildflower honey (150mg natural caffeine).
+- [Yertea Lemon Honey Six-Pack](https://buy.stripe.com/7sY4gyadpeVl4Wse217AI01): Six-pack bundle of 12oz Lemon Honey bottles.
+- [Yertea Raspberry Singles](https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04): Hot-brewed yerba mate blended with tart red raspberry puree and cane sugar (150mg natural caffeine).
+- [Yertea Raspberry Six-Pack](https://buy.stripe.com/9B63cu1GTaF5agM4rr7AI02): Six-pack bundle of 12oz Raspberry bottles.
+
+## Ingredients & Nutrition Highlights
+- **Caffeine Source:** 150mg naturally occurring caffeine + theobromine from hot-brewed yerba mate leaves.
+- **Clean Ingredients:** Pure yerba mate, real fruit juice, cane sugar, raw wildflower honey, and citric acid.
+- **Free From:** Zero lab-made synthetics, artificial sweeteners, or taurine.
+
+## Wholesale & Venue Distribution
+- [Yertea Wholesale Inquiry](https://yertea.co/#wholesale): Wholesale cases, cafe/bar bottle programs, and event tasting drops for cafes, climbing gyms, gaming hubs, bars, and craft grocers.
