@@ -42,9 +42,24 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
     
+    /* Fluid logo & spacer scaling so zoomed/narrow phones never collide with nav links */
+    .logo-responsive {
+      height: clamp(6.75rem, 26vw, 11.5rem);
+      width: auto;
+    }
+    .mobile-logo-gap {
+      width: clamp(6.5rem, 27vw, 10.5rem);
+    }
+    .mobile-nav-text {
+      font-size: clamp(0.56rem, 2.45vw, 0.75rem);
+    }
+    @media (min-width: 1024px) {
+      .logo-responsive {
+        height: 14rem; /* 224px (h-56) on desktop */
+      }
+    }
+
     /* Primary "Grab Yertea" dropdown handling */
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu,
     .dropdown.is-open .dropdown-menu {
       opacity: 1;
       visibility: visible;
@@ -60,14 +75,34 @@
                   transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
                   visibility 0.18s;
     }
-    .dropdown:hover .chevron-icon,
     .dropdown.is-open .chevron-icon {
       transform: rotate(180deg);
     }
 
+    /* Hover open ONLY on real mouse/trackpad devices (fixes sticky tap-focus bug on mobile) */
+    @media (hover: hover) and (pointer: fine) {
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+      .dropdown:hover .chevron-icon {
+        transform: rotate(180deg);
+      }
+      .sub-dropdown:hover .sub-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0) translateY(0) scale(1);
+        pointer-events: auto;
+        max-height: 320px;
+      }
+      .sub-dropdown:hover .sub-chevron {
+        transform: rotate(90deg);
+      }
+    }
+
     /* Nested sub-dropdown handling ("Grab Some" & "Grab A Lot") */
-    .sub-dropdown:hover .sub-dropdown-menu,
-    .sub-dropdown:focus-within .sub-dropdown-menu,
     .sub-dropdown.is-open .sub-dropdown-menu {
       opacity: 1;
       visibility: visible;
@@ -92,7 +127,6 @@
                     transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
                     visibility 0.18s;
       }
-      .sub-dropdown:hover .sub-chevron,
       .sub-dropdown.is-open .sub-chevron {
         transform: rotate(90deg);
       }
@@ -125,17 +159,15 @@
 <body class="bg-[#4A6D7C] text-white antialiased selection:bg-yertea-pink selection:text-white">
 
   <!-- ========================================================
-       THIN STICKY NAVBAR WITH IN-LINE DOUBLE-SIZE LOGO:
-       - Mobile/Tablet (<lg): Slim bar with overhanging logo
-       - Desktop (lg+): Thin bar (lg:h-24) with double-size logo centered on the exact same line as links & CTA
+       THIN STICKY NAVBAR WITH ZOOM-ADAPTIVE LOGO & TOGGLE MENUS
        ======================================================== -->
   <nav class="fixed top-0 left-0 right-0 z-50 pointer-events-none">
     
     <div class="bg-[#4A6D7C]/90 backdrop-blur-xl border-b border-white/15 pointer-events-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6">
         
-        <!-- Thin 3-Column Header Row across all screens (h-20 sm:h-24) -->
-        <div class="grid grid-cols-[1fr_auto_1fr] items-center h-20 sm:h-24 gap-2">
+        <!-- Thin 3-Column Header Row across all screens -->
+        <div class="grid grid-cols-[1fr_auto_1fr] items-center h-16 sm:h-24 gap-1.5 sm:gap-2">
           
           <!-- Left Column: Desktop Navigation Links (Aligned on centerline of thin bar) -->
           <div class="hidden lg:flex items-center justify-start gap-6 xl:gap-8 text-xs xl:text-sm font-bold uppercase tracking-wider text-white/90">
@@ -147,10 +179,8 @@
           <!-- Mobile/Tablet Left Spacer -->
           <div class="lg:hidden"></div>
 
-          <!-- Center Column:
-               - Mobile/Tablet: Hangs down from top (top-1.5 sm:top-2)
-               - Desktop (lg+): Centered vertically on the exact same centerline as the links & CTA button (lg:top-1/2 lg:-translate-y-1/2) -->
-          <div class="relative flex items-center justify-center h-full w-40 sm:w-48 lg:w-56">
+          <!-- Center Column: Zoom-responsive logo wrapper -->
+          <div class="relative flex items-center justify-center h-full mobile-logo-gap lg:w-56">
             <a 
               href="#" 
               aria-label="Yertea Home" 
@@ -159,12 +189,12 @@
               <img 
                 src="Images/yertea-logo-main.png" 
                 alt="Yertea" 
-                class="h-40 sm:h-48 lg:h-56 w-auto max-w-none object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]"
+                class="logo-responsive max-w-none object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]"
               />
             </a>
           </div>
           
-          <!-- Right Column: Highlighted "Grab Yertea" Master Dropdown (Aligned on centerline of thin bar) -->
+          <!-- Right Column: Highlighted "Grab Yertea" Master Dropdown -->
           <div class="flex items-center justify-end">
             <div class="relative dropdown" id="grab-yertea-dropdown">
               <button 
@@ -172,10 +202,10 @@
                 id="grab-yertea-btn"
                 aria-expanded="false"
                 aria-haspopup="true"
-                class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-pink via-yertea-green to-yertea-teal hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs md:text-sm font-black px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_25px_rgba(236,20,140,0.45)] ring-2 ring-white/25 cursor-pointer whitespace-nowrap"
+                class="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-yertea-pink via-yertea-green to-yertea-teal hover:brightness-110 text-white font-display uppercase tracking-wider text-[10px] sm:text-xs md:text-sm font-black px-3 sm:px-6 py-2 sm:py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_25px_rgba(236,20,140,0.45)] ring-2 ring-white/25 cursor-pointer whitespace-nowrap"
               >
                 <span>Grab Yertea</span>
-                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
@@ -192,6 +222,7 @@
                   <div class="relative sub-dropdown">
                     <button 
                       type="button" 
+                      aria-expanded="false"
                       class="sub-dropdown-trigger w-full flex items-center justify-between px-3.5 py-3 rounded-xl bg-white/5 hover:bg-white/12 border border-white/10 hover:border-yertea-pink/50 transition text-left cursor-pointer group"
                     >
                       <div>
@@ -269,6 +300,7 @@
                   <div class="relative sub-dropdown">
                     <button 
                       type="button" 
+                      aria-expanded="false"
                       class="sub-dropdown-trigger w-full flex items-center justify-between px-3.5 py-3 rounded-xl bg-white/5 hover:bg-white/12 border border-white/10 hover:border-yertea-green/50 transition text-left cursor-pointer group"
                     >
                       <div>
@@ -350,16 +382,16 @@
         </div>
       </div>
 
-      <!-- Mobile / Tablet Section Links: Split Left & Right so Center Underneath Logo Stays 100% Clear -->
+      <!-- Mobile / Tablet Section Links: Zoom-scaled single-line links around clear center logo gap -->
       <div class="lg:hidden border-t border-white/10 bg-[#3b5865]/85 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-3 py-2 flex items-center justify-between text-[10px] sm:text-xs font-display font-black uppercase tracking-wider text-white/95">
-          <div class="flex items-center gap-3 sm:gap-5">
+        <div class="max-w-7xl mx-auto px-2.5 sm:px-4 py-2 flex items-center justify-between mobile-nav-text font-display font-black uppercase tracking-wide text-white/95 whitespace-nowrap">
+          <div class="flex-1 flex items-center justify-around pr-1">
             <a href="#flavors" class="hover:text-yertea-teal active:text-yertea-teal transition py-0.5">The Flavors</a>
             <a href="#formula" class="hover:text-yertea-green active:text-yertea-green transition py-0.5">The Brew</a>
           </div>
-          <!-- Open Center Gap for Overhanging Logo -->
-          <div class="w-24 sm:w-32 shrink-0"></div>
-          <div class="flex items-center gap-3 sm:gap-5">
+          <!-- Zoom-Responsive Open Center Gap for Overhanging Logo -->
+          <div class="mobile-logo-gap shrink-0"></div>
+          <div class="flex-1 flex items-center justify-around pl-1">
             <a href="#vibe" class="hover:text-yertea-pink active:text-yertea-pink transition py-0.5">Why Mate?</a>
             <a href="#wholesale" class="hover:text-yertea-teal active:text-yertea-teal transition py-0.5">Wholesale</a>
           </div>
@@ -372,11 +404,11 @@
   <!-- ========================================================
        HERO SECTION WITH VIDEO BACKGROUND
        ======================================================== -->
-  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-48 sm:pt-56 lg:pt-44">
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-40 sm:pt-52 lg:pt-44">
     
     <!-- Background Looping Video Container -->
     <div class="absolute inset-0 z-0 overflow-hidden">
-      <video autoplay loop muted playsinline class="w-full h-full object-cover scale-105 filter brightness-80 contrast-110">
+      <video autoplay loop muted playsinline webkit-playsinline class="w-full h-full object-cover scale-105 filter brightness-80 contrast-110">
         <source src="Images/hero-video.mp4" type="video/mp4" />
       </video>
       <!-- Slate #4A6D7C gradient fading seamlessly into the page body -->
@@ -872,16 +904,25 @@
       ctaRaspberry.textContent = data.raspberry.label;
     }
 
-    // Touch / Click support for "Grab Yertea" and its nested "Grab Some" / "Grab A Lot" sub-menus
+    // Touch & Click support for "Grab Yertea" and its nested "Grab Some" / "Grab A Lot" sub-menus
     const masterDropdown = document.getElementById('grab-yertea-dropdown');
     const masterBtn = document.getElementById('grab-yertea-btn');
+
+    function closeAllSubMenus() {
+      document.querySelectorAll('.sub-dropdown').forEach(sub => {
+        sub.classList.remove('is-open');
+        const btn = sub.querySelector('.sub-dropdown-trigger');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
 
     masterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = masterDropdown.classList.toggle('is-open');
       masterBtn.setAttribute('aria-expanded', isOpen);
       if (!isOpen) {
-        document.querySelectorAll('.sub-dropdown').forEach(sub => sub.classList.remove('is-open'));
+        closeAllSubMenus();
+        masterBtn.blur();
       }
     });
 
@@ -890,9 +931,13 @@
         e.stopPropagation();
         const parentSub = trigger.closest('.sub-dropdown');
         const wasOpen = parentSub.classList.contains('is-open');
-        document.querySelectorAll('.sub-dropdown').forEach(sub => sub.classList.remove('is-open'));
+        closeAllSubMenus();
         if (!wasOpen) {
           parentSub.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        } else {
+          // Clear focus state on mobile so CSS doesn't hold the accordion open
+          trigger.blur();
         }
       });
     });
@@ -901,7 +946,7 @@
       if (!masterDropdown.contains(e.target)) {
         masterDropdown.classList.remove('is-open');
         masterBtn.setAttribute('aria-expanded', 'false');
-        document.querySelectorAll('.sub-dropdown').forEach(sub => sub.classList.remove('is-open'));
+        closeAllSubMenus();
       }
     });
   </script>
