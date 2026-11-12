@@ -3,7 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yertea | It's Better When You Know</title>
+  <title>Yertea | Hot-Brewed Botanical Yerba Mate Energy</title>
+  
+  <!-- Primary SEO & Canonical -->
+  <meta name="description" content="Yertea is a hot-brewed botanical yerba mate energy tonic in 12oz glass bottles. 150mg natural caffeine, real fruit juice, cane sugar, and honey—zero lab synthetics or crash." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://yertea.co/" />
+
+  <!-- OpenGraph / iMessage / Social Link Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yertea" />
+  <meta property="og:url" content="https://yertea.co/" />
+  <meta property="og:title" content="Yertea | It's Better When You Know" />
+  <meta property="og:description" content="Hot-brewed botanical yerba mate tonic in 12oz glass bottles. 150mg natural caffeine, real fruit juice, cane sugar & honey. Available in Classic, Lemon Honey, and Raspberry." />
+  <meta property="og:image" content="https://yertea.co/Images/yertea-og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / Discord Large Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yertea | Hot-Brewed Botanical Yerba Mate Energy" />
+  <meta name="twitter:description" content="150mg natural caffeine from real yerba mate, fruit juice, cane sugar & honey. Zero lab synthetics or chemical crash." />
+  <meta name="twitter:image" content="https://yertea.co/Images/yertea-og-preview.png" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Images/yertea-logo-main.png" />
@@ -36,6 +57,147 @@
         }
       }
     }
+  </script>
+
+  <!-- Structured Data Graph for Search & AI Answer Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://yertea.co/#organization",
+        "name": "Yertea Co.",
+        "url": "https://yertea.co/",
+        "logo": "https://yertea.co/Images/yertea-logo-main.png",
+        "description": "Craft botanical beverage company brewing natural yerba mate energy tonics in 12oz long-neck glass bottles.",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://yertea.co/#website",
+        "url": "https://yertea.co/",
+        "name": "Yertea",
+        "publisher": { "@id": "https://yertea.co/#organization" }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://yertea.co/#product-classic",
+        "name": "Yertea Classic Botanical Mate Tonic (12oz)",
+        "brand": { "@type": "Brand", "name": "Yertea" },
+        "description": "Bold, earthy hot-brewed yerba mate steeped with pure cane sugar and honey, delivering 150mg of natural caffeine without synthetic additives.",
+        "image": "https://yertea.co/Images/bottles.jpg",
+        "size": "12 fl oz",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Classic Single Bottle (12oz)",
+            "url": "https://buy.stripe.com/7sY28qclx3cDex20bb7AI03",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Classic Six-Pack (6 x 12oz)",
+            "url": "https://buy.stripe.com/6oU4gy99l14vagM5vv7AI00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://yertea.co/#product-lemon-honey",
+        "name": "Yertea Lemon Honey Botanical Mate Tonic (12oz)",
+        "brand": { "@type": "Brand", "name": "Yertea" },
+        "description": "Hot-brewed yerba mate balanced with fresh-pressed lemon juice and raw wildflower honey, delivering 150mg of natural caffeine.",
+        "image": "https://yertea.co/Images/bottles.jpg",
+        "size": "12 fl oz",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Lemon Honey Single Bottle (12oz)",
+            "url": "https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Lemon Honey Six-Pack (6 x 12oz)",
+            "url": "https://buy.stripe.com/7sY4gyadpeVl4Wse217AI01",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://yertea.co/#product-raspberry",
+        "name": "Yertea Raspberry Botanical Mate Tonic (12oz)",
+        "brand": { "@type": "Brand", "name": "Yertea" },
+        "description": "Tart red raspberry puree blended with hot-brewed yerba mate and pure cane sugar, delivering 150mg of natural caffeine.",
+        "image": "https://yertea.co/Images/bottles.jpg",
+        "size": "12 fl oz",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Raspberry Single Bottle (12oz)",
+            "url": "https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Raspberry Six-Pack (6 x 12oz)",
+            "url": "https://buy.stripe.com/9B63cu1GTaF5agM4rr7AI02",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://yertea.co/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much caffeine is in a bottle of Yertea?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each 12 fl oz glass bottle of Yertea contains 150mg of naturally occurring caffeine brewed directly from real yerba mate leaves, paired with natural theobromine for smooth, sustained focus without a synthetic energy crash."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What ingredients are in Yertea?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yertea is made with real hot-brewed yerba mate, real fruit juice (fresh-pressed lemon or red raspberry puree), pure cane sugar, raw wildflower honey, and citric acid. It contains zero synthetic taurine, artificial sweeteners, or lab-made stimulants."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Yertea packaged and sold?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yertea is bottled in 12oz long-neck glass bottles and is available online in Single Bottles or Six-Packs across three flavors: Classic, Lemon Honey, and Raspberry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can cafes, bars, gyms, or retailers stock Yertea wholesale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Yertea supplies wholesale cases, cafe and bar bottle programs, and event tasting drops. Venue owners can request wholesale pricing and sample drops directly through the Wholesale inquiry form on yertea.co."
+            }
+          }
+        ]
+      }
+    ]
+  }
   </script>
 
   <style>
@@ -154,6 +316,14 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    /* Clean FAQ summary marker removal */
+    details > summary {
+      list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
 </head>
 <body class="bg-[#4A6D7C] text-white antialiased selection:bg-yertea-pink selection:text-white">
@@ -161,7 +331,7 @@
   <!-- ========================================================
        THIN STICKY NAVBAR WITH ZOOM-ADAPTIVE LOGO & TOGGLE MENUS
        ======================================================== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+  <nav aria-label="Primary Navigation" class="fixed top-0 left-0 right-0 z-50 pointer-events-none">
     
     <div class="bg-[#4A6D7C]/90 backdrop-blur-xl border-b border-white/15 pointer-events-auto">
       <div class="max-w-7xl mx-auto px-3 sm:px-6">
@@ -188,7 +358,9 @@
             >
               <img 
                 src="Images/yertea-logo-main.png" 
-                alt="Yertea" 
+                alt="Yertea Botanical Mate Energy Logo" 
+                width="224"
+                height="224"
                 class="logo-responsive max-w-none object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]"
               />
             </a>
@@ -449,377 +621,470 @@
     </div>
 
     <!-- Scroll Indicator -->
-    <a href="#flavors" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/60 hover:text-white transition animate-bounce">
+    <a href="#flavors" aria-label="Scroll to Flavors" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/60 hover:text-white transition animate-bounce">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </a>
   </header>
 
-  <!-- ========================================================
-       BUY HERE SECTION: DIRECT FLAVOR SHOWCASE & CHECKOUT
-       ======================================================== -->
-  <section id="flavors" class="py-24 bg-[#3b5865] border-t border-white/15 relative scroll-mt-32">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      
-      <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
-        Direct Checkout
-      </span>
-      <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
-        Choose Your Stash.
-      </h2>
-      <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-        Hot-brewed botanical energy in 12oz long-neck glass. Switch between single bottles or six-packs for instant Stripe checkout.
-      </p>
-
-      <!-- Sleek Pack Size Switcher -->
-      <div class="inline-flex items-center p-1.5 rounded-full bg-[#243942] border border-white/15 mb-14 shadow-inner" role="group" aria-label="Select Pack Size">
-        <button 
-          type="button" 
-          id="btn-singles" 
-          onclick="setPackSize('singles')"
-          class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 bg-white text-[#243942] shadow-md cursor-pointer"
-        >
-          Grab Some (Singles)
-        </button>
-        <button 
-          type="button" 
-          id="btn-sixpack" 
-          onclick="setPackSize('sixpack')"
-          class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 text-white/75 hover:text-white cursor-pointer"
-        >
-          Grab A Lot (6-Packs) 🔥
-        </button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+  <main>
+    <!-- ========================================================
+         BUY HERE SECTION: DIRECT FLAVOR SHOWCASE & CHECKOUT
+         ======================================================== -->
+    <section id="flavors" class="py-24 bg-[#3b5865] border-t border-white/15 relative scroll-mt-32">
+      <div class="max-w-7xl mx-auto px-6 text-center">
         
-        <!-- Flavor Card 1: Classic -->
-        <div class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-green/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(72,184,67,0.25)]">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-yertea-green/15 border border-yertea-green/40 flex items-center justify-center text-2xl">
-                🌿
-              </div>
-              <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/80">
-                1 × 12oz Bottle
-              </span>
-            </div>
-            <span class="inline-block text-xs uppercase font-display font-black text-yertea-green tracking-wider mb-2">Original Recipe</span>
-            <h3 class="text-3xl font-black text-white font-display mb-3">Classic</h3>
-            <p class="text-white/80 text-sm leading-relaxed mb-8">
-              Bold, earthy yerba mate steeped to perfection with a light cane sugar and honey touch. Clean sustained focus without the crash.
-            </p>
-          </div>
-          <a 
-            id="cta-classic"
-            href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="w-full text-center bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_20px_rgba(72,184,67,0.35)] text-sm inline-block"
+        <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
+          Direct Checkout
+        </span>
+        <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
+          Choose Your Stash.
+        </h2>
+        <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+          Hot-brewed botanical energy in 12oz long-neck glass. Switch between single bottles or six-packs for instant Stripe checkout.
+        </p>
+
+        <!-- Sleek Pack Size Switcher -->
+        <div class="inline-flex items-center p-1.5 rounded-full bg-[#243942] border border-white/15 mb-14 shadow-inner" role="group" aria-label="Select Pack Size">
+          <button 
+            type="button" 
+            id="btn-singles" 
+            onclick="setPackSize('singles')"
+            class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 bg-white text-[#243942] shadow-md cursor-pointer"
           >
-            Order Classic Singles 🌿
-          </a>
+            Grab Some (Singles)
+          </button>
+          <button 
+            type="button" 
+            id="btn-sixpack" 
+            onclick="setPackSize('sixpack')"
+            class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 text-white/75 hover:text-white cursor-pointer"
+          >
+            Grab A Lot (6-Packs) 🔥
+          </button>
         </div>
 
-        <!-- Flavor Card 2: Lemon Honey -->
-        <div class="group relative rounded-3xl bg-[#2e4651] border-2 border-yertea-teal p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-[0_12px_35px_rgba(0,229,219,0.25)]">
-          <div class="absolute -top-3.5 right-6 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
-            Fan Favorite
-          </div>
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-yertea-teal/15 border border-yertea-teal/40 flex items-center justify-center text-2xl">
-                🍋
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          
+          <!-- Flavor Card 1: Classic -->
+          <article class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-green/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(72,184,67,0.25)]">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-yertea-green/15 border border-yertea-green/40 flex items-center justify-center text-2xl">
+                  🌿
+                </div>
+                <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/80">
+                  1 × 12oz Bottle
+                </span>
               </div>
-              <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-yertea-teal/15 text-yertea-teal">
-                1 × 12oz Bottle
-              </span>
+              <span class="inline-block text-xs uppercase font-display font-black text-yertea-green tracking-wider mb-2">Original Recipe</span>
+              <h3 class="text-3xl font-black text-white font-display mb-3">Classic</h3>
+              <p class="text-white/80 text-sm leading-relaxed mb-8">
+                Bold, earthy yerba mate steeped to perfection with a light cane sugar and honey touch. Clean sustained focus without the crash.
+              </p>
             </div>
-            <span class="inline-block text-xs uppercase font-display font-black text-yertea-teal tracking-wider mb-2">Citrus Punch</span>
-            <h3 class="text-3xl font-black text-white font-display mb-3">Lemon Honey</h3>
-            <p class="text-white/80 text-sm leading-relaxed mb-8">
-              Steeped mate balanced with fresh-pressed lemon juice and raw wildflower honey. Refreshing, crisp, and revitalizing.
-            </p>
-          </div>
-          <a 
-            id="cta-lemon"
-            href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="w-full text-center bg-yertea-teal hover:bg-[#00c9c0] text-yertea-dark font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_25px_rgba(0,229,219,0.35)] text-sm inline-block"
-          >
-            Order Lemon Honey Singles 🍋
-          </a>
-        </div>
+            <a 
+              id="cta-classic"
+              href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-full text-center bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_20px_rgba(72,184,67,0.35)] text-sm inline-block"
+            >
+              Order Classic Singles 🌿
+            </a>
+          </article>
 
-        <!-- Flavor Card 3: Raspberry -->
-        <div class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-pink/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(236,20,140,0.25)]">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-yertea-pink/15 border border-yertea-pink/40 flex items-center justify-center text-2xl">
-                🫐
+          <!-- Flavor Card 2: Lemon Honey -->
+          <article class="group relative rounded-3xl bg-[#2e4651] border-2 border-yertea-teal p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-[0_12px_35px_rgba(0,229,219,0.25)]">
+            <div class="absolute -top-3.5 right-6 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
+              Fan Favorite
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-yertea-teal/15 border border-yertea-teal/40 flex items-center justify-center text-2xl">
+                  🍋
+                </div>
+                <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-yertea-teal/15 text-yertea-teal">
+                  1 × 12oz Bottle
+                </span>
               </div>
-              <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/80">
-                1 × 12oz Bottle
-              </span>
+              <span class="inline-block text-xs uppercase font-display font-black text-yertea-teal tracking-wider mb-2">Citrus Punch</span>
+              <h3 class="text-3xl font-black text-white font-display mb-3">Lemon Honey</h3>
+              <p class="text-white/80 text-sm leading-relaxed mb-8">
+                Steeped mate balanced with fresh-pressed lemon juice and raw wildflower honey. Refreshing, crisp, and revitalizing.
+              </p>
             </div>
-            <span class="inline-block text-xs uppercase font-display font-black text-yertea-pink tracking-wider mb-2">Wild Berry</span>
-            <h3 class="text-3xl font-black text-white font-display mb-3">Raspberry</h3>
-            <p class="text-white/80 text-sm leading-relaxed mb-8">
-              Tart red raspberry puree blended with our signature botanical mate infusion. Vibrant flavor with an energetic lift.
-            </p>
-          </div>
-          <a 
-            id="cta-raspberry"
-            href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="w-full text-center bg-yertea-pink hover:bg-[#d8107e] text-white font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_25px_rgba(236,20,140,0.35)] text-sm inline-block"
-          >
-            Order Raspberry Singles 🔥
-          </a>
-        </div>
+            <a 
+              id="cta-lemon"
+              href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-full text-center bg-yertea-teal hover:bg-[#00c9c0] text-yertea-dark font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_25px_rgba(0,229,219,0.35)] text-sm inline-block"
+            >
+              Order Lemon Honey Singles 🍋
+            </a>
+          </article>
 
+          <!-- Flavor Card 3: Raspberry -->
+          <article class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-pink/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(236,20,140,0.25)]">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-yertea-pink/15 border border-yertea-pink/40 flex items-center justify-center text-2xl">
+                  🫐
+                </div>
+                <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/80">
+                  1 × 12oz Bottle
+                </span>
+              </div>
+              <span class="inline-block text-xs uppercase font-display font-black text-yertea-pink tracking-wider mb-2">Wild Berry</span>
+              <h3 class="text-3xl font-black text-white font-display mb-3">Raspberry</h3>
+              <p class="text-white/80 text-sm leading-relaxed mb-8">
+                Tart red raspberry puree blended with our signature botanical mate infusion. Vibrant flavor with an energetic lift.
+              </p>
+            </div>
+            <a 
+              id="cta-raspberry"
+              href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-full text-center bg-yertea-pink hover:bg-[#d8107e] text-white font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_25px_rgba(236,20,140,0.35)] text-sm inline-block"
+            >
+              Order Raspberry Singles 🔥
+            </a>
+          </article>
+
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================
-       SECTION 1: "IT'S BETTER WHEN YOU KNOW" (CLEAN INGREDIENTS)
-       ======================================================== -->
-  <section id="formula" class="py-24 bg-gradient-to-b from-[#4A6D7C] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 relative scroll-mt-32">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- ========================================================
+         SECTION 1: "IT'S BETTER WHEN YOU KNOW" (CLEAN INGREDIENTS)
+         ======================================================== -->
+    <section id="formula" class="py-24 bg-gradient-to-b from-[#4A6D7C] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 relative scroll-mt-32">
+      <div class="max-w-7xl mx-auto px-6">
         
-        <!-- Left: Image Box for Bottles -->
-        <div class="relative group">
-          <div class="absolute -inset-2 bg-gradient-to-r from-yertea-teal to-yertea-pink rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
-          <div class="relative rounded-2xl overflow-hidden border-2 border-white/20 bg-[#2e4651] aspect-[4/5] flex items-center justify-center p-4">
-            <img 
-              src="Images/bottles.jpg" 
-              alt="Cold Yertea Bottles" 
-              class="w-full h-full object-cover rounded-xl"
-              onerror="this.src='https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=1000&auto=format&fit=crop'"
-            />
-            <div class="absolute bottom-6 left-6 right-6 bg-[#2e4651]/90 backdrop-blur-md p-4 rounded-xl border border-white/15">
-              <p class="font-display font-black text-yertea-teal uppercase text-sm">Yertea Botanical Tonic</p>
-              <p class="text-xs text-white/85">Naturally caffeinated brew in classic glass bottles.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Left: Image Box for Bottles -->
+          <div class="relative group">
+            <div class="absolute -inset-2 bg-gradient-to-r from-yertea-teal to-yertea-pink rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
+            <div class="relative rounded-2xl overflow-hidden border-2 border-white/20 bg-[#2e4651] aspect-[4/5] flex items-center justify-center p-4">
+              <img 
+                src="Images/bottles.jpg" 
+                alt="12oz glass bottles of Yertea botanical yerba mate tonic" 
+                class="w-full h-full object-cover rounded-xl"
+                onerror="this.src='https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=1000&auto=format&fit=crop'"
+              />
+              <div class="absolute bottom-6 left-6 right-6 bg-[#2e4651]/90 backdrop-blur-md p-4 rounded-xl border border-white/15">
+                <p class="font-display font-black text-yertea-teal uppercase text-sm">Yertea Botanical Tonic</p>
+                <p class="text-xs text-white/85">Naturally caffeinated brew in classic glass bottles.</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Right: Ingredients Breakdown -->
-        <div class="bg-gradient-to-br from-yertea-teal/15 via-[#2e4651] to-[#3b5865] p-8 md:p-12 rounded-3xl border border-yertea-teal/40 shadow-xl">
-          <span class="inline-block px-3 py-1 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-wider rounded-md mb-4">
-            Zero Smoke & Mirrors
+          <!-- Right: Ingredients Breakdown -->
+          <div class="bg-gradient-to-br from-yertea-teal/15 via-[#2e4651] to-[#3b5865] p-8 md:p-12 rounded-3xl border border-yertea-teal/40 shadow-xl">
+            <span class="inline-block px-3 py-1 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-wider rounded-md mb-4">
+              Zero Smoke & Mirrors
+            </span>
+            <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-6">
+              It's Better When <span class="text-yertea-teal">You Know</span>.
+            </h2>
+            <p class="text-white/90 text-lg leading-relaxed mb-8">
+              Look at the back of a gas-station energy drink. If you need a biochemistry degree to read the ingredients, why are you drinking it? We keep it real:
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="p-4 rounded-xl bg-white/10 border border-white/15">
+                <span class="text-2xl mb-1 block">🌿</span>
+                <h3 class="font-bold text-white text-base">Pure Yerba Mate</h3>
+                <p class="text-xs text-white/75">Clean caffeine + rich polyphenols</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 border border-white/15">
+                <span class="text-2xl mb-1 block">🍋</span>
+                <h3 class="font-bold text-white text-base">Real Fruit Juice</h3>
+                <p class="text-xs text-white/75">Crisp, refreshing, tart balance</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 border border-white/15">
+                <span class="text-2xl mb-1 block">🍯</span>
+                <h3 class="font-bold text-white text-base">Cane Sugar & Honey</h3>
+                <p class="text-xs text-white/75">No weird aftertaste chemical sweeteners</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 border border-white/15">
+                <span class="text-2xl mb-1 block">⚡</span>
+                <h3 class="font-bold text-white text-base">Pure Citric Acid</h3>
+                <p class="text-xs text-white/75">For that clean, biting punch</p>
+              </div>
+            </div>
+
+            <a href="#wholesale" class="inline-flex items-center gap-2 text-yertea-teal font-display font-bold uppercase tracking-wider text-sm hover:underline">
+              Request nutritional info & wholesale spec sheet →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: THE VIBE
+         ======================================================== -->
+    <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden scroll-mt-32">
+      <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-yertea-pink/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Left: Copy -->
+          <div>
+            <span class="inline-block px-3 py-1 bg-yertea-pink text-white font-display font-black text-xs uppercase tracking-wider rounded-md mb-4">
+              The Botanical Antidote
+            </span>
+            <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-6">
+              Fuel For Creators, Not Lab Rats.
+            </h2>
+            <p class="text-white/90 text-lg leading-relaxed mb-6">
+              Yerba mate has been shared across South America for centuries because it hits different. Coffee sends you through the ceiling and drops you into a ditch. Synthetic taurine bombs make your heart beat in morse code.
+            </p>
+            <p class="text-white/90 text-lg leading-relaxed mb-8">
+              Yertea delivers that euphoric, locked-in mental flow state with the smooth energy curve of theobromine and mateine. Perfect for long game sessions, studio hours, morning sets, or nights out with friends.
+            </p>
+
+            <div class="flex items-center gap-6">
+              <div>
+                <p class="font-display text-3xl font-black text-yertea-green">150mg</p>
+                <p class="text-xs uppercase text-white/75 font-bold">Natural Caffeine</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div>
+                <p class="font-display text-3xl font-black text-yertea-pink">0%</p>
+                <p class="text-xs uppercase text-white/75 font-bold">Lab Synthetics</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div>
+                <p class="font-display text-3xl font-black text-yertea-teal">100%</p>
+                <p class="text-xs uppercase text-white/75 font-bold">Drinkable Euphoria</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Lifestyle Image Box -->
+          <div class="relative">
+            <div class="relative rounded-3xl overflow-hidden border-2 border-yertea-pink/50 shadow-[0_15px_40px_rgba(236,20,140,0.25)] aspect-square bg-[#2e4651] flex items-center justify-center">
+              <img 
+                src="Images/lifestyle.jpg" 
+                alt="Enjoying Yertea botanical yerba mate energy drink" 
+                class="w-full h-full object-cover"
+                onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop'"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: FAQ (HUMAN + AI SEARCH ENGINE READABILITY)
+         ======================================================== -->
+    <section id="faq" class="py-24 bg-[#3b5865] border-t border-white/15 scroll-mt-32">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-14">
+          <span class="inline-block px-4 py-1.5 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
+            Quick Facts
           </span>
-          <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-6">
-            It's Better When <span class="text-yertea-teal">You Know</span>.
+          <h2 class="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-4">
+            Frequently Asked Questions.
           </h2>
-          <p class="text-white/90 text-lg leading-relaxed mb-8">
-            Look at the back of a gas-station energy drink. If you need a biochemistry degree to read the ingredients, why are you drinking it? We keep it real:
+          <p class="text-white/80 text-lg max-w-xl mx-auto">
+            Everything you want to know about Yertea's caffeine, ingredients, glass bottles, and wholesale availability.
           </p>
-
-          <div class="grid grid-cols-2 gap-4 mb-8">
-            <div class="p-4 rounded-xl bg-white/10 border border-white/15">
-              <span class="text-2xl mb-1 block">🌿</span>
-              <h4 class="font-bold text-white text-base">Pure Yerba Mate</h4>
-              <p class="text-xs text-white/75">Clean caffeine + rich polyphenols</p>
-            </div>
-            <div class="p-4 rounded-xl bg-white/10 border border-white/15">
-              <span class="text-2xl mb-1 block">🍋</span>
-              <h4 class="font-bold text-white text-base">Real Fruit Juice</h4>
-              <p class="text-xs text-white/75">Crisp, refreshing, tart balance</p>
-            </div>
-            <div class="p-4 rounded-xl bg-white/10 border border-white/15">
-              <span class="text-2xl mb-1 block">🍯</span>
-              <h4 class="font-bold text-white text-base">Cane Sugar & Honey</h4>
-              <p class="text-xs text-white/75">No weird aftertaste chemical sweeteners</p>
-            </div>
-            <div class="p-4 rounded-xl bg-white/10 border border-white/15">
-              <span class="text-2xl mb-1 block">⚡</span>
-              <h4 class="font-bold text-white text-base">Pure Citric Acid</h4>
-              <p class="text-xs text-white/75">For that clean, biting punch</p>
-            </div>
-          </div>
-
-          <a href="#wholesale" class="inline-flex items-center gap-2 text-yertea-teal font-display font-bold uppercase tracking-wider text-sm hover:underline">
-            Request nutritional info & wholesale spec sheet →
-          </a>
         </div>
 
+        <div class="space-y-4">
+          <details class="group rounded-2xl bg-[#2e4651] border border-white/15 p-6 open:border-yertea-teal/60 transition" open>
+            <summary class="flex items-center justify-between gap-4 font-display font-black text-lg text-white cursor-pointer">
+              <span>How much caffeine is in a bottle of Yertea?</span>
+              <span class="text-yertea-teal text-xl transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed mt-3 pt-3 border-t border-white/10">
+              Each 12 fl oz glass bottle of Yertea contains <strong>150mg of naturally occurring caffeine</strong> brewed directly from real yerba mate leaves, paired with natural theobromine for smooth, sustained focus without a synthetic energy crash.
+            </p>
+          </details>
+
+          <details class="group rounded-2xl bg-[#2e4651] border border-white/15 p-6 open:border-yertea-green/60 transition">
+            <summary class="flex items-center justify-between gap-4 font-display font-black text-lg text-white cursor-pointer">
+              <span>What ingredients are in Yertea?</span>
+              <span class="text-yertea-green text-xl transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed mt-3 pt-3 border-t border-white/10">
+              Yertea is brewed hot from real yerba mate leaves and blended with real fruit juice (fresh-pressed lemon or red raspberry puree), pure cane sugar, raw wildflower honey, and citric acid. It contains zero synthetic taurine, artificial sweeteners, or lab-made stimulants.
+            </p>
+          </details>
+
+          <details class="group rounded-2xl bg-[#2e4651] border border-white/15 p-6 open:border-yertea-pink/60 transition">
+            <summary class="flex items-center justify-between gap-4 font-display font-black text-lg text-white cursor-pointer">
+              <span>How is Yertea packaged and sold?</span>
+              <span class="text-yertea-pink text-xl transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed mt-3 pt-3 border-t border-white/10">
+              Yertea is bottled in classic 12oz long-neck glass bottles and is available online in Single Bottles (<em>Grab Some</em>) or Six-Packs (<em>Grab A Lot</em>) across three flavors: Classic, Lemon Honey, and Raspberry.
+            </p>
+          </details>
+
+          <details class="group rounded-2xl bg-[#2e4651] border border-white/15 p-6 open:border-yertea-teal/60 transition">
+            <summary class="flex items-center justify-between gap-4 font-display font-black text-lg text-white cursor-pointer">
+              <span>Can cafes, bars, gyms, or retailers stock Yertea wholesale?</span>
+              <span class="text-yertea-teal text-xl transition-transform duration-200 group-open:rotate-45">+</span>
+            </summary>
+            <p class="text-white/85 text-sm sm:text-base leading-relaxed mt-3 pt-3 border-t border-white/10">
+              Yes. Yertea supplies retail wholesale cases, cafe and bar bottle programs, and event tasting drops. Venue owners can request wholesale pricing, nutritional spec sheets, and sample drops directly through the Wholesale inquiry form below.
+            </p>
+          </details>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================
-       SECTION 2: THE VIBE
-       ======================================================== -->
-  <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden scroll-mt-32">
-    <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-yertea-pink/20 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- ========================================================
+         SECTION 4: WHOLESALE, BARS, CAFES & DISTRIBUTION
+         ======================================================== -->
+    <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 scroll-mt-32">
+      <div class="max-w-4xl mx-auto px-6 text-center">
         
-        <!-- Left: Copy -->
-        <div>
-          <span class="inline-block px-3 py-1 bg-yertea-pink text-white font-display font-black text-xs uppercase tracking-wider rounded-md mb-4">
-            The Botanical Antidote
-          </span>
-          <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-6">
-            Fuel For Creators, Not Lab Rats.
-          </h2>
-          <p class="text-white/90 text-lg leading-relaxed mb-6">
-            Yerba mate has been shared across South America for centuries because it hits different. Coffee sends you through the ceiling and drops you into a ditch. Synthetic taurine bombs make your heart beat in morse code.
-          </p>
-          <p class="text-white/90 text-lg leading-relaxed mb-8">
-            Yertea delivers that euphoric, locked-in mental flow state with the smooth energy curve of theobromine and mateine. Perfect for long game sessions, studio hours, morning sets, or nights out with friends.
-          </p>
+        <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
+          Partnerships & Cases
+        </span>
+        <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
+          Put Yertea In Your Cooler.
+        </h2>
+        <p class="text-white/85 text-lg mb-10 max-w-xl mx-auto">
+          Stocking cafes, climbing gyms, gaming hubs, bars, and craft grocers. Drop your details below for wholesale pricing, sample drops, or early cases.
+        </p>
 
-          <div class="flex items-center gap-6">
-            <div>
-              <p class="font-display text-3xl font-black text-yertea-green">150mg</p>
-              <p class="text-xs uppercase text-white/75 font-bold">Natural Caffeine</p>
-            </div>
-            <div class="w-px h-10 bg-white/20"></div>
-            <div>
-              <p class="font-display text-3xl font-black text-yertea-pink">0%</p>
-              <p class="text-xs uppercase text-white/75 font-bold">Lab Synthetics</p>
-            </div>
-            <div class="w-px h-10 bg-white/20"></div>
-            <div>
-              <p class="font-display text-3xl font-black text-yertea-teal">100%</p>
-              <p class="text-xs uppercase text-white/75 font-bold">Drinkable Euphoria</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Lifestyle Image Box -->
-        <div class="relative">
-          <div class="relative rounded-3xl overflow-hidden border-2 border-yertea-pink/50 shadow-[0_15px_40px_rgba(236,20,140,0.25)] aspect-square bg-[#2e4651] flex items-center justify-center">
-            <img 
-              src="Images/lifestyle.jpg" 
-              alt="Yertea Lifestyle and Energy" 
-              class="w-full h-full object-cover"
-              onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop'"
-            />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================
-       SECTION 3: WHOLESALE, BARS, CAFES & DISTRIBUTION
-       ======================================================== -->
-  <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 scroll-mt-32">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      
-      <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
-        Partnerships & Cases
-      </span>
-      <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
-        Put Yertea In Your Cooler.
-      </h2>
-      <p class="text-white/85 text-lg mb-10 max-w-xl mx-auto">
-        Stocking cafes, climbing gyms, gaming hubs, bars, and craft grocers. Drop your details below for wholesale pricing, sample drops, or early cases.
-      </p>
-
-      <!-- Active Web3Forms Inquiry Form -->
-      <form 
-        action="https://api.web3forms.com/submit" 
-        method="POST" 
-        class="space-y-4 text-left max-w-lg mx-auto bg-[#2e4651]/90 p-8 rounded-3xl border border-white/20 backdrop-blur-md shadow-2xl"
-      >
-        <!-- Your Web3Forms Access Key -->
-        <input type="hidden" name="access_key" value="347cd031-59a0-49cb-905c-bdb24645f4e8" />
-        
-        <!-- Notification Settings -->
-        <input type="hidden" name="subject" value="⚡ New Yertea Wholesale / Retail Inquiry" />
-        <input type="hidden" name="from_name" value="Yertea Web Inquiry" />
-        
-        <!-- Honeypot Anti-Spam -->
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-
-        <div>
-          <label class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
-            Your Name / Business
-          </label>
-          <input 
-            type="text" 
-            name="name" 
-            class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-green transition text-sm" 
-            placeholder="e.g. Acme Market & Coffee" 
-            required 
-          />
-        </div>
-
-        <div>
-          <label class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
-            Email Address
-          </label>
-          <input 
-            type="email" 
-            name="email" 
-            class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-teal transition text-sm" 
-            placeholder="name@business.com" 
-            required 
-          />
-        </div>
-
-        <div>
-          <label class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
-            Phone / Contact Number (Optional)
-          </label>
-          <input 
-            type="tel" 
-            name="phone" 
-            class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-teal transition text-sm" 
-            placeholder="(216) 555-0199" 
-          />
-        </div>
-
-        <div>
-          <label class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
-            I am interested in:
-          </label>
-          <select 
-            name="inquiry_type" 
-            class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yertea-pink transition text-sm"
+        <!-- Active Web3Forms Inquiry Form with In-Page AJAX Confirmation -->
+        <div class="max-w-lg mx-auto bg-[#2e4651]/90 p-8 rounded-3xl border border-white/20 backdrop-blur-md shadow-2xl">
+          <form 
+            id="wholesale-form"
+            action="https://api.web3forms.com/submit" 
+            method="POST" 
+            class="space-y-4 text-left"
           >
-            <option value="Retail Wholesale Cases">Retail Wholesale Cases</option>
-            <option value="Cafe / Bar Bottles & Tap">Cafe / Bar Bottles & Tap</option>
-            <option value="Event Sponsorship / Tasting Drop">Event Sponsorship / Tasting Drop</option>
-            <option value="Direct Consumer Pre-Order">Direct Consumer Pre-Order</option>
-          </select>
+            <!-- Your Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="347cd031-59a0-49cb-905c-bdb24645f4e8" />
+            
+            <!-- Notification Settings -->
+            <input type="hidden" name="subject" value="⚡ New Yertea Wholesale / Retail Inquiry" />
+            <input type="hidden" name="from_name" value="Yertea Web Inquiry" />
+            
+            <!-- Honeypot Anti-Spam -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+            <div>
+              <label for="ws-name" class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
+                Your Name / Business
+              </label>
+              <input 
+                id="ws-name"
+                type="text" 
+                name="name" 
+                class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-green transition text-sm" 
+                placeholder="e.g. Acme Market & Coffee" 
+                required 
+              />
+            </div>
+
+            <div>
+              <label for="ws-email" class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
+                Email Address
+              </label>
+              <input 
+                id="ws-email"
+                type="email" 
+                name="email" 
+                class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-teal transition text-sm" 
+                placeholder="name@business.com" 
+                required 
+              />
+            </div>
+
+            <div>
+              <label for="ws-phone" class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
+                Phone / Contact Number (Optional)
+              </label>
+              <input 
+                id="ws-phone"
+                type="tel" 
+                name="phone" 
+                class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-teal transition text-sm" 
+                placeholder="(216) 555-0199" 
+              />
+            </div>
+
+            <div>
+              <label for="ws-type" class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
+                I am interested in:
+              </label>
+              <select 
+                id="ws-type"
+                name="inquiry_type" 
+                class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-yertea-pink transition text-sm"
+              >
+                <option value="Retail Wholesale Cases">Retail Wholesale Cases</option>
+                <option value="Cafe / Bar Bottles & Tap">Cafe / Bar Bottles & Tap</option>
+                <option value="Event Sponsorship / Tasting Drop">Event Sponsorship / Tasting Drop</option>
+                <option value="Direct Consumer Pre-Order">Direct Consumer Pre-Order</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="ws-message" class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
+                Message
+              </label>
+              <textarea 
+                id="ws-message"
+                name="message" 
+                rows="3" 
+                class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-green transition text-sm" 
+                placeholder="Location, estimated volume, or questions..." 
+                required
+              ></textarea>
+            </div>
+
+            <button 
+              id="ws-submit-btn"
+              type="submit" 
+              class="w-full bg-gradient-to-r from-yertea-green via-yertea-teal to-yertea-pink hover:opacity-90 text-white font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_6px_25px_rgba(72,184,67,0.3)] text-sm cursor-pointer"
+            >
+              Send Wholesale Request 🚀
+            </button>
+            <p id="ws-error-msg" class="hidden text-xs text-yertea-pink font-bold text-center pt-1"></p>
+          </form>
+
+          <!-- In-Page Success State (Shown after AJAX submit without redirecting) -->
+          <div id="wholesale-success" class="hidden text-center py-8 px-4 space-y-4">
+            <div class="w-16 h-16 rounded-full bg-yertea-green/20 border-2 border-yertea-green flex items-center justify-center text-3xl mx-auto shadow-[0_0_25px_rgba(72,184,67,0.35)]">
+              ⚡
+            </div>
+            <h3 class="font-display text-3xl font-black uppercase text-white">
+              Request Locked In!
+            </h3>
+            <p class="text-white/85 text-sm leading-relaxed max-w-sm mx-auto">
+              Thanks for reaching out to Yertea Co. We've received your inquiry and will follow up shortly with wholesale pricing, spec sheets, or sample drop details.
+            </p>
+            <button 
+              type="button" 
+              onclick="resetWholesaleForm()"
+              class="inline-flex items-center gap-2 text-xs font-display font-black uppercase tracking-wider text-yertea-teal hover:underline pt-2 cursor-pointer"
+            >
+              ← Send another inquiry
+            </button>
+          </div>
         </div>
 
-        <div>
-          <label class="block text-xs font-display font-bold uppercase tracking-wider text-white/80 mb-2">
-            Message
-          </label>
-          <textarea 
-            name="message" 
-            rows="3" 
-            class="w-full bg-[#3b5865] border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/45 focus:outline-none focus:border-yertea-green transition text-sm" 
-            placeholder="Location, estimated volume, or questions..." 
-            required
-          ></textarea>
-        </div>
-
-        <button 
-          type="submit" 
-          class="w-full bg-gradient-to-r from-yertea-green via-yertea-teal to-yertea-pink hover:opacity-90 text-white font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_6px_25px_rgba(72,184,67,0.3)] text-sm cursor-pointer"
-        >
-          Send Wholesale Request 🚀
-        </button>
-      </form>
-
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
   <!-- ========================================================
        FOOTER
@@ -827,19 +1092,20 @@
   <footer class="py-12 bg-[#2e4651] border-t border-white/15 text-center text-xs text-white/70 font-bold">
     <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <img src="Images/yertea-logo-main.png" alt="Yertea" class="h-10 w-auto opacity-95" />
+        <img src="Images/yertea-logo-main.png" alt="Yertea" width="40" height="40" class="h-10 w-auto opacity-95" />
         <span class="font-display tracking-wider text-white/80">© YERTEA CO. ALL RIGHTS RESERVED.</span>
       </div>
-      <div class="flex items-center gap-8 text-white/80">
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-white/80">
         <a href="#flavors" class="hover:text-yertea-green transition">Buy Here</a>
         <a href="#formula" class="hover:text-yertea-teal transition">The Brew</a>
         <a href="#vibe" class="hover:text-yertea-pink transition">The Vibe</a>
+        <a href="#faq" class="hover:text-yertea-teal transition">FAQ</a>
         <a href="#wholesale" class="hover:text-yertea-green transition">Wholesale</a>
       </div>
     </div>
   </footer>
 
-  <!-- Interactive Pack Size Switcher & Mobile-Friendly Dropdown Script -->
+  <!-- Interactive Pack Size Switcher, Dropdown & AJAX Wholesale Form Script -->
   <script>
     const checkoutConfig = {
       singles: {
@@ -936,7 +1202,6 @@
           parentSub.classList.add('is-open');
           trigger.setAttribute('aria-expanded', 'true');
         } else {
-          // Clear focus state on mobile so CSS doesn't hold the accordion open
           trigger.blur();
         }
       });
@@ -949,6 +1214,48 @@
         closeAllSubMenus();
       }
     });
+
+    // In-Page AJAX Web3Forms Handler (Prevents external redirect)
+    const wholesaleForm = document.getElementById('wholesale-form');
+    const wholesaleSuccess = document.getElementById('wholesale-success');
+    const wsSubmitBtn = document.getElementById('ws-submit-btn');
+    const wsErrorMsg = document.getElementById('ws-error-msg');
+
+    wholesaleForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      wsErrorMsg.classList.add('hidden');
+      const originalText = wsSubmitBtn.textContent;
+      wsSubmitBtn.disabled = true;
+      wsSubmitBtn.textContent = 'Sending Request...';
+
+      try {
+        const formData = new FormData(wholesaleForm);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          wholesaleForm.reset();
+          wholesaleForm.classList.add('hidden');
+          wholesaleSuccess.classList.remove('hidden');
+        } else {
+          throw new Error(result.message || 'Submission failed. Please try again.');
+        }
+      } catch (err) {
+        wsErrorMsg.textContent = err.message || 'Network error—please try again in a moment.';
+        wsErrorMsg.classList.remove('hidden');
+      } finally {
+        wsSubmitBtn.disabled = false;
+        wsSubmitBtn.textContent = originalText;
+      }
+    });
+
+    function resetWholesaleForm() {
+      wholesaleSuccess.classList.add('hidden');
+      wholesaleForm.classList.remove('hidden');
+    }
   </script>
 
 </body>
