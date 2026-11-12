@@ -125,13 +125,13 @@
 <body class="bg-[#4A6D7C] text-white antialiased selection:bg-yertea-pink selection:text-white">
 
   <!-- ========================================================
-       STICKY NAVBAR: CENTER-STAGE LOGO + "GRAB YERTEA" + MOBILE LINKS
+       STICKY NAVBAR: DOUBLE-SIZE CENTER-STAGE LOGO + "GRAB YERTEA"
        ======================================================== -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-[#4A6D7C]/92 backdrop-blur-xl border-b border-white/15 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
-      <!-- Top Bar: 3-Column Grid to Keep Logo Dead-Center -->
-      <div class="grid grid-cols-[1fr_auto_1fr] items-center h-24 sm:h-28 md:h-32 gap-2">
+      <!-- Top Bar: 3-Column Grid scaled to accommodate double-size logo -->
+      <div class="grid grid-cols-[1fr_auto_1fr] items-center h-44 sm:h-52 md:h-60 gap-2">
         
         <!-- Left Column: Desktop Navigation Links (Balanced against right button) -->
         <div class="hidden lg:flex items-center justify-start gap-6 xl:gap-8 text-xs xl:text-sm font-bold uppercase tracking-wider text-white/90">
@@ -143,12 +143,12 @@
         <!-- Mobile/Tablet Left Spacer to preserve true centering of the logo -->
         <div class="lg:hidden"></div>
 
-        <!-- Center Column: Prominent Center-Stage Yertea Logo -->
-        <a href="#" aria-label="Yertea Home" class="flex items-center justify-center group py-1">
+        <!-- Center Column: Double-Size Center-Stage Yertea Logo -->
+        <a href="#" aria-label="Yertea Home" class="flex items-center justify-center group py-2">
           <img 
             src="Images/yertea-logo-main.png" 
             alt="Yertea" 
-            class="h-20 sm:h-24 md:h-28 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_4px_16px_rgba(0,0,0,0.28)]"
+            class="h-40 sm:h-48 md:h-56 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_6px_22px_rgba(0,0,0,0.32)]"
           />
         </a>
         
@@ -160,7 +160,7 @@
               id="grab-yertea-btn"
               aria-expanded="false"
               aria-haspopup="true"
-              class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-pink via-yertea-green to-yertea-teal hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs md:text-sm font-black px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full transition transform hover:scale-105 shadow-[0_0_25px_rgba(236,20,140,0.45)] ring-2 ring-white/25 cursor-pointer"
+              class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-pink via-yertea-green to-yertea-teal hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs md:text-sm font-black px-3.5 sm:px-6 py-2.5 sm:py-3.5 rounded-full transition transform hover:scale-105 shadow-[0_0_25px_rgba(236,20,140,0.45)] ring-2 ring-white/25 cursor-pointer whitespace-nowrap"
             >
               <span>Grab Yertea</span>
               <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +194,7 @@
                     </svg>
                   </button>
 
-                  <!-- Sub-menu Flavors: Grab Some (Matches dark #18272e main menu) -->
+                  <!-- Sub-menu Flavors: Grab Some -->
                   <div class="sub-dropdown-menu z-50">
                     <div class="bg-[#18272e] border border-white/20 rounded-xl md:rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.65)] p-2 mt-1.5 md:mt-0 backdrop-blur-2xl">
                       <div class="hidden md:flex items-center justify-between px-3 py-1.5 border-b border-white/10 mb-1">
@@ -271,7 +271,7 @@
                     </svg>
                   </button>
 
-                  <!-- Sub-menu Flavors: Grab A Lot (Matches dark #18272e main menu) -->
+                  <!-- Sub-menu Flavors: Grab A Lot -->
                   <div class="sub-dropdown-menu z-50">
                     <div class="bg-[#18272e] border border-yertea-teal/40 rounded-xl md:rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.65)] p-2 mt-1.5 md:mt-0 backdrop-blur-2xl">
                       <div class="hidden md:flex items-center justify-between px-3 py-1.5 border-b border-white/10 mb-1">
@@ -352,7 +352,7 @@
   <!-- ========================================================
        HERO SECTION WITH VIDEO BACKGROUND
        ======================================================== -->
-  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 lg:pt-32">
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-56 sm:pt-64 md:pt-68 lg:pt-64">
     
     <!-- Background Looping Video Container -->
     <div class="absolute inset-0 z-0 overflow-hidden">
@@ -382,7 +382,7 @@
       
       <!-- Subtitle -->
       <p class="text-lg md:text-2xl text-white/95 max-w-2xl mx-auto mb-10 font-bold leading-relaxed">
-        Brewed hot, packed with real yerba mate, cane sugar, honey, and fruit. No neon lab chemicals, no 3:00 PM existential dread.
+        Brewed hot, packed with real yerba mate, cane sugar, and fruit. No neon lab chemicals, no 3:00 PM existential dread.
       </p>
       
       <!-- Hero Action Buttons -->
@@ -407,7 +407,7 @@
   <!-- ========================================================
        BUY HERE SECTION: DIRECT FLAVOR SHOWCASE & CHECKOUT
        ======================================================== -->
-  <section id="flavors" class="py-24 bg-[#3b5865] border-t border-white/15 relative scroll-mt-28">
+  <section id="flavors" class="py-24 bg-[#3b5865] border-t border-white/15 relative scroll-mt-56 md:scroll-mt-64">
     <div class="max-w-7xl mx-auto px-6 text-center">
       
       <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
@@ -536,7 +536,7 @@
   <!-- ========================================================
        SECTION 1: "IT'S BETTER WHEN YOU KNOW" (CLEAN INGREDIENTS)
        ======================================================== -->
-  <section id="formula" class="py-24 bg-gradient-to-b from-[#4A6D7C] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 relative scroll-mt-28">
+  <section id="formula" class="py-24 bg-gradient-to-b from-[#4A6D7C] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 relative scroll-mt-56 md:scroll-mt-64">
     <div class="max-w-7xl mx-auto px-6">
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -605,7 +605,7 @@
   <!-- ========================================================
        SECTION 2: THE VIBE
        ======================================================== -->
-  <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden scroll-mt-28">
+  <section id="vibe" class="py-24 bg-[#4A6D7C] border-t border-white/15 relative overflow-hidden scroll-mt-56 md:scroll-mt-64">
     <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-yertea-pink/20 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-6">
@@ -663,7 +663,7 @@
   <!-- ========================================================
        SECTION 3: WHOLESALE, BARS, CAFES & DISTRIBUTION
        ======================================================== -->
-  <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 scroll-mt-28">
+  <section id="wholesale" class="py-24 bg-gradient-to-t from-[#2e4651] via-[#3b5865] to-[#4A6D7C] border-t border-white/15 scroll-mt-56 md:scroll-mt-64">
     <div class="max-w-4xl mx-auto px-6 text-center">
       
       <span class="inline-block px-4 py-1.5 bg-yertea-green text-yertea-dark font-display font-black text-xs uppercase tracking-widest rounded-full mb-4">
