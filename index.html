@@ -201,20 +201,26 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    :root {
+      /* Single source of truth: logo width and center gap are ALWAYS identical on mobile */
+      --mobile-logo-w: clamp(5.75rem, 27vw, 9.5rem);
+    }
     
     /* Fluid logo & spacer scaling so zoomed/narrow phones never collide with nav links */
     .logo-responsive {
-      height: clamp(6.75rem, 26vw, 11.5rem);
-      width: auto;
+      width: var(--mobile-logo-w);
+      height: auto;
     }
     .mobile-logo-gap {
-      width: clamp(6.5rem, 27vw, 10.5rem);
+      width: var(--mobile-logo-w);
     }
     .mobile-nav-text {
-      font-size: clamp(0.56rem, 2.45vw, 0.75rem);
+      font-size: clamp(0.5rem, 2.25vw, 0.75rem);
     }
     @media (min-width: 1024px) {
       .logo-responsive {
+        width: auto;
         height: 14rem; /* 224px (h-56) on desktop */
       }
     }
@@ -339,8 +345,8 @@
     <div class="bg-[#4A6D7C]/90 backdrop-blur-xl border-b border-white/15 pointer-events-auto">
       <div class="max-w-7xl mx-auto px-3 sm:px-6">
         
-        <!-- Thin 3-Column Header Row across all screens -->
-        <div class="grid grid-cols-[1fr_auto_1fr] items-center h-16 sm:h-24 gap-1.5 sm:gap-2">
+        <!-- Thin 3-Column Header Row with True-Center Grid -->
+        <div class="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center h-16 sm:h-24 gap-1 sm:gap-2">
           
           <!-- Left Column: Desktop Navigation Links -->
           <div class="hidden lg:flex items-center justify-start gap-6 xl:gap-8 text-xs xl:text-sm font-bold uppercase tracking-wider text-white/90">
@@ -572,15 +578,15 @@
         </div>
       </div>
 
-      <!-- Mobile / Tablet Section Links: Zoom-scaled single-line links around clear center logo gap -->
+      <!-- Mobile / Tablet Section Links: Guaranteed clear of center logo at any zoom -->
       <div class="lg:hidden border-t border-white/10 bg-[#3b5865]/85 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-2.5 sm:px-4 py-2 flex items-center justify-between mobile-nav-text font-display font-black uppercase tracking-wide text-white/95 whitespace-nowrap">
-          <div class="flex-1 flex items-center justify-around pr-1">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 py-2 flex items-center justify-between mobile-nav-text font-display font-black uppercase tracking-tight sm:tracking-wide text-white/95 whitespace-nowrap">
+          <div class="flex-1 flex items-center justify-between pr-2">
             <a href="#flavors" class="hover:text-yertea-teal active:text-yertea-teal transition py-0.5">The Flavors</a>
             <a href="#formula" class="hover:text-yertea-green active:text-yertea-green transition py-0.5">The Brew</a>
           </div>
           <div class="mobile-logo-gap shrink-0"></div>
-          <div class="flex-1 flex items-center justify-around pl-1">
+          <div class="flex-1 flex items-center justify-between pl-2">
             <a href="#vibe" class="hover:text-yertea-pink active:text-yertea-pink transition py-0.5">Why Mate?</a>
             <a href="#wholesale" class="hover:text-yertea-teal active:text-yertea-teal transition py-0.5">Wholesale</a>
           </div>
