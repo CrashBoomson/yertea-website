@@ -203,25 +203,26 @@
     h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
 
     :root {
-      /* Single source of truth: logo width and center gap are ALWAYS identical on mobile */
-      --mobile-logo-w: clamp(5.75rem, 27vw, 9.5rem);
+      /* Larger overhanging logo height paired with a tighter gap sized to the visible artwork */
+      --mobile-logo-h: clamp(7.25rem, 28vw, 10.5rem);
+      --mobile-logo-gap: clamp(5.25rem, 21vw, 8.25rem);
     }
     
     /* Fluid logo & spacer scaling so zoomed/narrow phones never collide with nav links */
     .logo-responsive {
-      width: var(--mobile-logo-w);
-      height: auto;
+      height: var(--mobile-logo-h);
+      width: auto;
     }
     .mobile-logo-gap {
-      width: var(--mobile-logo-w);
+      width: var(--mobile-logo-gap);
     }
     .mobile-nav-text {
-      font-size: clamp(0.5rem, 2.25vw, 0.75rem);
+      font-size: clamp(0.54rem, 2.3vw, 0.75rem);
     }
     @media (min-width: 1024px) {
       .logo-responsive {
-        width: auto;
         height: 14rem; /* 224px (h-56) on desktop */
+        width: auto;
       }
     }
 
@@ -338,7 +339,7 @@
   </div>
 
   <!-- ========================================================
-       THIN STICKY NAVBAR WITH ZOOM-ADAPTIVE LOGO & CART TRIGGER
+       THIN STICKY NAVBAR WITH OVERHANGING LOGO & CART TRIGGER
        ======================================================== -->
   <nav aria-label="Primary Navigation" class="fixed top-0 left-0 right-0 z-50 pointer-events-none">
     
@@ -358,12 +359,12 @@
           <!-- Mobile/Tablet Left Spacer -->
           <div class="lg:hidden"></div>
 
-          <!-- Center Column: Zoom-responsive logo wrapper -->
+          <!-- Center Column: Overhanging logo straddling both header rows -->
           <div class="relative flex items-center justify-center h-full mobile-logo-gap lg:w-56">
             <a 
               href="#" 
               aria-label="Yertea Home" 
-              class="absolute top-1.5 sm:top-2 lg:top-1/2 lg:-translate-y-1/2 flex items-center justify-center group z-30"
+              class="absolute top-3 sm:top-4 lg:top-1/2 lg:-translate-y-1/2 flex items-center justify-center group z-30"
             >
               <img 
                 src="Images/yertea-logo-main.png" 
