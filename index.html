@@ -42,102 +42,201 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
     
-    /* Dropdown hover menu handling */
-    .dropdown:hover .dropdown-menu {
-      display: block;
-      animation: fadeIn 0.15s ease-out forwards;
+    /* Sleek hover-bridge dropdown handling (prevents menu from closing when moving cursor down) */
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
+    .dropdown-menu {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.18s;
+    }
+    .dropdown:hover .chevron-icon {
+      transform: rotate(180deg);
     }
   </style>
 </head>
 <body class="bg-[#4A6D7C] text-white antialiased selection:bg-yertea-pink selection:text-white">
 
   <!-- ========================================================
-       STICKY NAVBAR WITH "GRAB SOME" DROPDOWN
+       STICKY NAVBAR WITH "GRAB SOME" & "GRAB ALOT" DROPDOWNS
        ======================================================== -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#4A6D7C]/90 backdrop-blur-lg border-b border-white/15 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#4A6D7C]/90 backdrop-blur-xl border-b border-white/15 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo + Wordmark -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
         <img 
           src="Images/yertea-logo-main.png" 
           alt="Yertea Logo" 
-          class="h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-110"
+          class="h-10 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-110"
         />
-        <span class="font-display text-2xl font-black tracking-wider text-white">
+        <span class="font-display text-xl sm:text-2xl font-black tracking-wider text-white">
           YER<span class="text-yertea-green">TEA</span>
         </span>
       </a>
       
       <!-- Center Navigation Links -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-white/85">
+      <div class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-white/85">
         <a href="#flavors" class="hover:text-yertea-teal transition">The Flavors</a>
         <a href="#formula" class="hover:text-yertea-green transition">The Brew</a>
         <a href="#vibe" class="hover:text-yertea-pink transition">Why Mate?</a>
         <a href="#wholesale" class="hover:text-yertea-teal transition">Wholesale</a>
       </div>
       
-      <!-- "Grab Some" Dropdown Menu -->
-      <div class="relative dropdown">
-        <button 
-          type="button" 
-          class="inline-flex items-center gap-2 bg-gradient-to-r from-yertea-pink to-yertea-green hover:opacity-90 text-white font-display uppercase tracking-wider text-xs font-black px-6 py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_20px_rgba(236,20,140,0.4)] cursor-pointer"
-        >
-          <span>Grab Some</span>
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
+      <!-- Right CTA Dropdown Group -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        
+        <!-- 1. "Grab Some" Dropdown Menu (Singles) -->
+        <div class="relative dropdown">
+          <button 
+            type="button" 
+            class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-pink to-yertea-green hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs font-black px-4 sm:px-5 py-2.5 sm:py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_20px_rgba(236,20,140,0.35)] cursor-pointer"
+          >
+            <span>Grab Some</span>
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
 
-        <!-- Dropdown Menu items -->
-        <div class="dropdown-menu hidden absolute right-0 mt-2 w-64 bg-[#2e4651] border border-white/20 rounded-2xl shadow-2xl p-2 z-50 backdrop-blur-xl">
-          <div class="px-3 py-2 text-[10px] font-display font-black uppercase tracking-widest text-white/60 border-b border-white/10">
-            Select A Flavor
+          <!-- Hover Bridge + Dropdown Card -->
+          <div class="dropdown-menu absolute right-0 pt-2.5 w-72 z-50">
+            <div class="bg-[#243942]/95 border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] p-2 backdrop-blur-2xl">
+              <div class="flex items-center justify-between px-3 py-2 border-b border-white/10">
+                <span class="text-[10px] font-display font-black uppercase tracking-widest text-white/60">Single Bottles</span>
+                <span class="text-[10px] font-display font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-yertea-teal">12oz Glass</span>
+              </div>
+
+              <a 
+                href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-between px-3 py-2.5 mt-1 rounded-xl hover:bg-white/10 transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]"></span>
+                  <div>
+                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Classic Singles</p>
+                    <p class="text-[11px] text-white/65">Pure, bold botanical mate</p>
+                  </div>
+                </div>
+                <span class="text-white/40 group-hover:text-yertea-green group-hover:translate-x-0.5 transition-all">→</span>
+              </a>
+
+              <a 
+                href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]"></span>
+                  <div>
+                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Lemon Honey Singles</p>
+                    <p class="text-[11px] text-white/65">Crisp citrus & natural honey</p>
+                  </div>
+                </div>
+                <span class="text-white/40 group-hover:text-yertea-teal group-hover:translate-x-0.5 transition-all">→</span>
+              </a>
+
+              <a 
+                href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]"></span>
+                  <div>
+                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Raspberry Singles</p>
+                    <p class="text-[11px] text-white/65">Wild berry tart punch</p>
+                  </div>
+                </div>
+                <span class="text-white/40 group-hover:text-yertea-pink group-hover:translate-x-0.5 transition-all">→</span>
+              </a>
+            </div>
           </div>
-
-          <a 
-            href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-          >
-            <div>
-              <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Order Classic</p>
-              <p class="text-[11px] text-white/70">Pure, bold botanical mate</p>
-            </div>
-            <span class="text-white/50 group-hover:text-white transition">→</span>
-          </a>
-
-          <a 
-            href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-          >
-            <div>
-              <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Order Lemon Honey</p>
-              <p class="text-[11px] text-white/70">Crisp citrus & natural honey</p>
-            </div>
-            <span class="text-white/50 group-hover:text-white transition">→</span>
-          </a>
-
-          <a 
-            href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
-          >
-            <div>
-              <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Order Raspberry</p>
-              <p class="text-[11px] text-white/70">Wild berry tart punch</p>
-            </div>
-            <span class="text-white/50 group-hover:text-white transition">→</span>
-          </a>
         </div>
+
+        <!-- 2. "Grab Alot" Dropdown Menu (Six-Packs) -->
+        <div class="relative dropdown">
+          <button 
+            type="button" 
+            class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-yertea-teal via-yertea-green to-yertea-pink hover:brightness-110 text-white font-display uppercase tracking-wider text-[11px] sm:text-xs font-black px-4 sm:px-5 py-2.5 sm:py-3 rounded-full transition transform hover:scale-105 shadow-[0_0_22px_rgba(0,229,219,0.35)] cursor-pointer"
+          >
+            <span>Grab Alot</span>
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white chevron-icon transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Hover Bridge + Dropdown Card -->
+          <div class="dropdown-menu absolute right-0 pt-2.5 w-72 z-50">
+            <div class="bg-[#243942]/95 border border-yertea-teal/40 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] p-2 backdrop-blur-2xl">
+              <div class="flex items-center justify-between px-3 py-2 border-b border-white/10">
+                <span class="text-[10px] font-display font-black uppercase tracking-widest text-white/60">Stash Bundles</span>
+                <span class="text-[10px] font-display font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-yertea-green/20 text-yertea-green border border-yertea-green/30">6-Packs</span>
+              </div>
+
+              <a 
+                href="https://buy.stripe.com/6oU4gy99l14vagM5vv7AI00" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-between px-3 py-2.5 mt-1 rounded-xl hover:bg-white/10 transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]"></span>
+                  <div>
+                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-green transition">Classic Six-Packs</p>
+                    <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
+                  </div>
+                </div>
+                <span class="text-white/40 group-hover:text-yertea-green group-hover:translate-x-0.5 transition-all">→</span>
+              </a>
+
+              <a 
+                href="https://buy.stripe.com/7sY4gyadpeVl4Wse217AI01" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]"></span>
+                  <div>
+                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-teal transition">Lemon Honey Six-Packs</p>
+                    <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
+                  </div>
+                </div>
+                <span class="text-white/40 group-hover:text-yertea-teal group-hover:translate-x-0.5 transition-all">→</span>
+              </a>
+
+              <a 
+                href="https://buy.stripe.com/9B63cu1GTaF5agM4rr7AI02" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 transition group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]"></span>
+                  <div>
+                    <p class="font-display font-black text-sm text-white group-hover:text-yertea-pink transition">Raspberry Six-Packs</p>
+                    <p class="text-[11px] text-white/65">6 × 12oz glass bottles</p>
+                  </div>
+                </div>
+                <span class="text-white/40 group-hover:text-yertea-pink group-hover:translate-x-0.5 transition-all">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -181,10 +280,10 @@
       
       <!-- Hero Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#flavors" class="w-full sm:w-auto bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform active:scale-95 shadow-[0_8px_30px_rgba(72,184,67,0.4)]">
+        <a href="#flavors" class="w-full sm:w-auto bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform hover:-translate-y-0.5 active:scale-95 shadow-[0_8px_30px_rgba(72,184,67,0.4)]">
           Buy Here ⚡
         </a>
-        <a href="#wholesale" class="w-full sm:w-auto border-2 border-yertea-pink bg-yertea-pink/20 backdrop-blur-sm hover:bg-yertea-pink text-white font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform active:scale-95 shadow-[0_8px_25px_rgba(236,20,140,0.3)]">
+        <a href="#wholesale" class="w-full sm:w-auto border-2 border-yertea-pink bg-yertea-pink/20 backdrop-blur-sm hover:bg-yertea-pink text-white font-display uppercase tracking-wider font-black px-9 py-5 rounded-full text-base transition transform hover:-translate-y-0.5 active:scale-95 shadow-[0_8px_25px_rgba(236,20,140,0.3)]">
           Stock In Your Venue 🔥
         </a>
       </div>
@@ -210,17 +309,42 @@
       <h2 class="font-display text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
         Choose Your Stash.
       </h2>
-      <p class="text-white/80 text-lg mb-16 max-w-2xl mx-auto">
-        Cold-brewed botanical energy in 12oz long-neck glass. Pick your favorite flavor below for instant, secure Stripe checkout.
+      <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+        Cold-brewed botanical energy in 12oz long-neck glass. Switch between single bottles or six-packs for instant Stripe checkout.
       </p>
+
+      <!-- Sleek Pack Size Switcher -->
+      <div class="inline-flex items-center p-1.5 rounded-full bg-[#243942] border border-white/15 mb-14 shadow-inner" role="group" aria-label="Select Pack Size">
+        <button 
+          type="button" 
+          id="btn-singles" 
+          onclick="setPackSize('singles')"
+          class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 bg-white text-[#243942] shadow-md cursor-pointer"
+        >
+          Grab Some (Singles)
+        </button>
+        <button 
+          type="button" 
+          id="btn-sixpack" 
+          onclick="setPackSize('sixpack')"
+          class="px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 text-white/75 hover:text-white cursor-pointer"
+        >
+          Grab Alot (6-Packs) 🔥
+        </button>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         
         <!-- Flavor Card 1: Classic -->
-        <div class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-green/80 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(72,184,67,0.25)]">
+        <div class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-green/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(72,184,67,0.25)]">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-yertea-green/15 border border-yertea-green/40 flex items-center justify-center text-2xl mb-6">
-              🌿
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-yertea-green/15 border border-yertea-green/40 flex items-center justify-center text-2xl">
+                🌿
+              </div>
+              <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/80">
+                1 × 12oz Bottle
+              </span>
             </div>
             <span class="inline-block text-xs uppercase font-display font-black text-yertea-green tracking-wider mb-2">Original Recipe</span>
             <h3 class="text-3xl font-black text-white font-display mb-3">Classic</h3>
@@ -229,23 +353,29 @@
             </p>
           </div>
           <a 
+            id="cta-classic"
             href="https://buy.stripe.com/7sY28qclx3cDex20bb7AI03" 
             target="_blank" 
             rel="noopener noreferrer" 
             class="w-full text-center bg-yertea-green hover:bg-[#3ea03a] text-yertea-dark font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_20px_rgba(72,184,67,0.35)] text-sm inline-block"
           >
-            Order Classic 🌿
+            Order Classic Singles 🌿
           </a>
         </div>
 
         <!-- Flavor Card 2: Lemon Honey -->
-        <div class="group relative rounded-3xl bg-[#2e4651] border-2 border-yertea-teal p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(0,229,219,0.25)]">
+        <div class="group relative rounded-3xl bg-[#2e4651] border-2 border-yertea-teal p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-[0_12px_35px_rgba(0,229,219,0.25)]">
           <div class="absolute -top-3.5 right-6 bg-yertea-teal text-yertea-dark font-display font-black text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
             Fan Favorite
           </div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-yertea-teal/15 border border-yertea-teal/40 flex items-center justify-center text-2xl mb-6">
-              🍋
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-yertea-teal/15 border border-yertea-teal/40 flex items-center justify-center text-2xl">
+                🍋
+              </div>
+              <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-yertea-teal/15 text-yertea-teal">
+                1 × 12oz Bottle
+              </span>
             </div>
             <span class="inline-block text-xs uppercase font-display font-black text-yertea-teal tracking-wider mb-2">Citrus Punch</span>
             <h3 class="text-3xl font-black text-white font-display mb-3">Lemon Honey</h3>
@@ -254,20 +384,26 @@
             </p>
           </div>
           <a 
+            id="cta-lemon"
             href="https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05" 
             target="_blank" 
             rel="noopener noreferrer" 
             class="w-full text-center bg-yertea-teal hover:bg-[#00c9c0] text-yertea-dark font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_25px_rgba(0,229,219,0.35)] text-sm inline-block"
           >
-            Order Lemon Honey 🍋
+            Order Lemon Honey Singles 🍋
           </a>
         </div>
 
         <!-- Flavor Card 3: Raspberry -->
-        <div class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-pink/80 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(236,20,140,0.25)]">
+        <div class="group relative rounded-3xl bg-[#2e4651] border border-white/15 p-8 flex flex-col justify-between hover:border-yertea-pink/80 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(236,20,140,0.25)]">
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-yertea-pink/15 border border-yertea-pink/40 flex items-center justify-center text-2xl mb-6">
-              🫐
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-yertea-pink/15 border border-yertea-pink/40 flex items-center justify-center text-2xl">
+                🫐
+              </div>
+              <span class="pack-badge text-[11px] font-display font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/80">
+                1 × 12oz Bottle
+              </span>
             </div>
             <span class="inline-block text-xs uppercase font-display font-black text-yertea-pink tracking-wider mb-2">Wild Berry</span>
             <h3 class="text-3xl font-black text-white font-display mb-3">Raspberry</h3>
@@ -276,12 +412,13 @@
             </p>
           </div>
           <a 
+            id="cta-raspberry"
             href="https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04" 
             target="_blank" 
             rel="noopener noreferrer" 
             class="w-full text-center bg-yertea-pink hover:bg-[#d8107e] text-white font-display uppercase tracking-wider font-black py-4 rounded-xl transition transform active:scale-95 shadow-[0_4px_25px_rgba(236,20,140,0.35)] text-sm inline-block"
           >
-            Order Raspberry 🔥
+            Order Raspberry Singles 🔥
           </a>
         </div>
 
@@ -542,6 +679,72 @@
       </div>
     </div>
   </footer>
+
+  <!-- Interactive Pack Size Switcher Script -->
+  <script>
+    const checkoutConfig = {
+      singles: {
+        badge: '1 × 12oz Bottle',
+        classic: {
+          url: 'https://buy.stripe.com/7sY28qclx3cDex20bb7AI03',
+          label: 'Order Classic Singles 🌿'
+        },
+        lemon: {
+          url: 'https://buy.stripe.com/6oU28q3P1bJ960w2jj7AI05',
+          label: 'Order Lemon Honey Singles 🍋'
+        },
+        raspberry: {
+          url: 'https://buy.stripe.com/9B65kC71d9B19cIcXX7AI04',
+          label: 'Order Raspberry Singles 🔥'
+        }
+      },
+      sixpack: {
+        badge: '6 × 12oz Bottles',
+        classic: {
+          url: 'https://buy.stripe.com/6oU4gy99l14vagM5vv7AI00',
+          label: 'Order Classic Six-Pack 🌿'
+        },
+        lemon: {
+          url: 'https://buy.stripe.com/7sY4gyadpeVl4Wse217AI01',
+          label: 'Order Lemon Honey Six-Pack 🍋'
+        },
+        raspberry: {
+          url: 'https://buy.stripe.com/9B63cu1GTaF5agM4rr7AI02',
+          label: 'Order Raspberry Six-Pack 🔥'
+        }
+      }
+    };
+
+    function setPackSize(size) {
+      const data = checkoutConfig[size];
+      const btnSingles = document.getElementById('btn-singles');
+      const btnSixpack = document.getElementById('btn-sixpack');
+
+      if (size === 'singles') {
+        btnSingles.className = 'px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 bg-white text-[#243942] shadow-md cursor-pointer';
+        btnSixpack.className = 'px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 text-white/75 hover:text-white cursor-pointer';
+      } else {
+        btnSixpack.className = 'px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 bg-gradient-to-r from-yertea-teal to-yertea-green text-[#0d0f12] shadow-md cursor-pointer';
+        btnSingles.className = 'px-6 py-2.5 rounded-full font-display font-black text-xs uppercase tracking-wider transition-all duration-200 text-white/75 hover:text-white cursor-pointer';
+      }
+
+      document.querySelectorAll('.pack-badge').forEach(badge => {
+        badge.textContent = data.badge;
+      });
+
+      const ctaClassic = document.getElementById('cta-classic');
+      ctaClassic.href = data.classic.url;
+      ctaClassic.textContent = data.classic.label;
+
+      const ctaLemon = document.getElementById('cta-lemon');
+      ctaLemon.href = data.lemon.url;
+      ctaLemon.textContent = data.lemon.label;
+
+      const ctaRaspberry = document.getElementById('cta-raspberry');
+      ctaRaspberry.href = data.raspberry.url;
+      ctaRaspberry.textContent = data.raspberry.label;
+    }
+  </script>
 
 </body>
 </html>
