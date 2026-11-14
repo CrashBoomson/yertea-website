@@ -326,6 +326,56 @@
 <body class="bg-[#4A6D7C] text-white antialiased selection:bg-yertea-pink selection:text-white">
 
   <!-- ========================================================
+       ADD-TO-CART TOAST NOTIFICATION (Auto-dismissing)
+       ======================================================== -->
+  <div
+    id="cart-toast"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-[55] rounded-2xl bg-[#18272e]/95 border border-white/20 p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.65)] backdrop-blur-xl transition-all duration-300 ease-out transform translate-y-6 opacity-0 pointer-events-none"
+  >
+    <div class="flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div
+          id="toast-emoji-box"
+          class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl shrink-0 border border-yertea-teal/40"
+        >
+          ⚡
+        </div>
+        <div class="min-w-0">
+          <p class="font-display font-black text-[10px] uppercase tracking-widest text-yertea-teal">
+            Added To Stash
+          </p>
+          <p id="toast-item-name" class="font-display font-black text-sm text-white truncate">
+            Classic Single
+          </p>
+          <p id="toast-item-meta" class="text-[11px] text-white/65 truncate">
+            1 × 12oz Glass Bottle • $3.89
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button
+          type="button"
+          onclick="openCartFromToast()"
+          class="px-3 py-2 rounded-xl bg-yertea-teal hover:bg-[#00c9c0] text-yertea-dark font-display font-black text-[11px] uppercase tracking-wider transition cursor-pointer"
+        >
+          View Stash
+        </button>
+        <button
+          type="button"
+          onclick="hideCartToast()"
+          aria-label="Dismiss notification"
+          class="w-7 h-7 rounded-lg text-white/45 hover:text-white hover:bg-white/10 flex items-center justify-center text-xs transition cursor-pointer"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
        POST-CHECKOUT STATUS BANNER (Shown on ?checkout=success/canceled)
        ======================================================== -->
   <div id="checkout-status-banner" class="hidden fixed bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[70] rounded-2xl bg-[#18272e] border-2 border-yertea-green p-4 shadow-[0_20px_50px_rgba(0,0,0,0.65)] backdrop-blur-xl">
@@ -1276,6 +1326,7 @@
     const CART_STORAGE_KEY = 'yertea_stash_cart_v1';
     let currentPackMode = 'singles';
     let cart = [];
+    let toastTimeout = null;
 
     try {
       const saved = localStorage.getItem(CART_STORAGE_KEY);
@@ -1332,6 +1383,40 @@
       document.getElementById('cta-raspberry').textContent = isSingles ? 'Add Raspberry Single — $3.89 🔥' : 'Add Raspberry Six-Pack — $22.50 🔥';
     }
 
+    function showCartToast(product, itemQty) {
+      const toast = document.getElementById('cart-toast');
+      const emojiBox = document.getElementById('toast-emoji-box');
+      const nameEl = document.getElementById('toast-item-name');
+      const metaEl = document.getElementById('toast-item-meta');
+      if (!toast) return;
+
+      emojiBox.textContent = product.emoji;
+      emojiBox.style.borderColor = `${product.accent}66`;
+      toast.style.borderColor = `${product.accent}55`;
+      nameEl.textContent = product.name;
+      metaEl.textContent = `${product.subtitle} • ${formatMoney(product.unitPrice)} (${itemQty} in stash)`;
+
+      toast.classList.remove('translate-y-6', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        hideCartToast();
+      }, 3400);
+    }
+
+    function hideCartToast() {
+      const toast = document.getElementById('cart-toast');
+      if (!toast) return;
+      toast.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      toast.classList.add('translate-y-6', 'opacity-0', 'pointer-events-none');
+    }
+
+    function openCartFromToast() {
+      hideCartToast();
+      openCart();
+    }
+
     function addSelectedPack(flavorKey) {
       const suffix = currentPackMode === 'singles' ? 'single' : 'sixpack';
       addToCart(`${flavorKey}-${suffix}`);
@@ -1341,9 +1426,11 @@
       const product = CATALOG[skuId];
       if (!product) return;
 
+      let itemQty = 1;
       const existing = cart.find(item => item.id === skuId);
       if (existing) {
         existing.quantity += 1;
+        itemQty = existing.quantity;
       } else {
         cart.push({ id: skuId, quantity: 1 });
       }
@@ -1351,10 +1438,17 @@
       saveCart();
       renderCart();
 
+      const countBadge = document.getElementById('cart-count-badge');
+      if (countBadge) {
+        countBadge.classList.add('scale-125', 'transition-transform', 'duration-150');
+        setTimeout(() => countBadge.classList.remove('scale-125'), 200);
+      }
+
+      showCartToast(product, itemQty);
+
       masterDropdown.classList.remove('is-open');
       masterBtn.setAttribute('aria-expanded', 'false');
       closeAllSubMenus();
-      openCart();
     }
 
     function updateItemQuantity(skuId, delta) {
@@ -1447,6 +1541,7 @@
     }
 
     function openCart() {
+      hideCartToast();
       const drawer = document.getElementById('cart-drawer');
       const backdrop = document.getElementById('cart-backdrop');
       backdrop.classList.remove('hidden');
