@@ -843,18 +843,43 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           <div class="relative group">
-            <div class="absolute -inset-2 bg-gradient-to-r from-yertea-teal to-yertea-pink rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
-            <div class="relative rounded-2xl overflow-hidden border-2 border-white/20 bg-white aspect-[4/5] flex flex-col justify-between p-4 pb-28 shadow-2xl">
+            <!-- Vibrant Multi-Color Aura Behind Card -->
+            <div class="absolute -inset-2.5 bg-gradient-to-tr from-yertea-teal via-yertea-green to-yertea-pink rounded-3xl blur-xl opacity-45 group-hover:opacity-75 transition duration-500"></div>
+            
+            <!-- Full-Bleed Spotlight Frame with Edge Vignette -->
+            <div class="relative rounded-3xl overflow-hidden border-2 border-white/25 bg-[radial-gradient(circle_at_50%_46%,#ffffff_48%,#dce9ee_78%,#4A6D7C_100%)] aspect-[4/5] shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+              
+              <!-- Top Corner Spec Pill -->
+              <div class="absolute top-5 left-5 z-20 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#18272e]/90 backdrop-blur-md border border-white/20 text-[11px] font-display font-black uppercase tracking-wider text-yertea-teal shadow-lg">
+                <span>⚡</span>
+                <span>12 FL OZ • Long-Neck Glass</span>
+              </div>
+
+              <!-- Real Bottle Trio + Radial Crown Burst (Full-Bleed) -->
               <img 
                 src="Images/bottles.jpg" 
                 alt="12oz glass bottles of Yertea Lemon Honey, Classic, and Raspberry botanical yerba mate tonic" 
-                class="w-full h-full object-contain rounded-xl"
+                class="w-full h-full object-cover object-center scale-[1.03] group-hover:scale-[1.07] transition-transform duration-500 ease-out mix-blend-multiply"
                 onerror="this.src='https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=1000&auto=format&fit=crop'"
               />
-              <div class="absolute bottom-5 left-5 right-5 bg-[#2e4651]/95 backdrop-blur-md p-4 rounded-xl border border-white/15 shadow-lg">
-                <p class="font-display font-black text-yertea-teal uppercase text-sm">Yertea Botanical Tonic</p>
-                <p class="text-xs text-white/85">Naturally caffeinated brew in classic 12oz glass bottles.</p>
+
+              <!-- Soft Edge Vignette & Bottom Scrim -->
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_58%,rgba(24,39,46,0.45)_100%)]"></div>
+              <div class="absolute inset-x-0 bottom-0 h-36 pointer-events-none bg-gradient-to-t from-[#18272e] via-[#18272e]/70 to-transparent"></div>
+
+              <!-- Floating Glass Caption Overlay -->
+              <div class="absolute bottom-5 left-5 right-5 z-20 bg-[#18272e]/90 backdrop-blur-xl p-4 rounded-2xl border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.45)] flex items-center justify-between gap-3">
+                <div>
+                  <p class="font-display font-black text-yertea-teal uppercase text-sm tracking-wide">Yertea Botanical Tonic</p>
+                  <p class="text-xs text-white/85 mt-0.5">Naturally caffeinated brew in classic glass bottles.</p>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-teal shadow-[0_0_8px_#00e5db]" title="Lemon Honey"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-green shadow-[0_0_8px_#48b843]" title="Classic"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yertea-pink shadow-[0_0_8px_#ec148c]" title="Raspberry"></span>
+                </div>
               </div>
+
             </div>
           </div>
 
