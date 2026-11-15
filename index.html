@@ -703,17 +703,41 @@
   </aside>
 
   <!-- ========================================================
-       HERO SECTION WITH VIDEO BACKGROUND
+       HERO SECTION WITH RESPONSIVE MOBILE & DESKTOP VIDEOS
        ======================================================== -->
   <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-40 sm:pt-52 lg:pt-44">
     
-    <!-- Background Looping Video Container -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
-      <video autoplay loop muted playsinline webkit-playsinline class="w-full h-full object-cover scale-105 filter brightness-80 contrast-110">
-        <source src="Images/hero-video.mp4" type="video/mp4" />
+    <!-- Background Looping Video Container (Vertical Mobile / Widescreen Desktop) -->
+    <div class="absolute inset-0 z-0 overflow-hidden bg-[#2e4651]">
+      <!-- Mobile Vertical Video (< 768px) -->
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        webkit-playsinline
+        preload="metadata"
+        class="block md:hidden w-full h-full object-cover object-center filter brightness-80 contrast-110"
+      >
+        <source src="Images/hero-video-mobile.mp4" type="video/mp4" />
       </video>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#4A6D7C]/80 via-[#4A6D7C]/55 to-[#4A6D7C] z-10"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,219,0.18),transparent_70%)] z-10"></div>
+
+      <!-- Desktop Widescreen Video (>= 768px) -->
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        webkit-playsinline
+        preload="metadata"
+        class="hidden md:block w-full h-full object-cover object-center scale-105 filter brightness-80 contrast-110"
+      >
+        <source src="Images/hero-video-desktop.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Atmospheric Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#4A6D7C]/80 via-[#4A6D7C]/55 to-[#4A6D7C] z-10 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,219,0.18),transparent_70%)] z-10 pointer-events-none"></div>
     </div>
 
     <!-- Hero Content -->
